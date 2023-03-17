@@ -2,6 +2,7 @@
   "name": "travelens.github.io",
   "author": "Chris Tham (chris@christham.net)",
   "description": "Travels Through A Lens master site",
+  "license": "MIT",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
@@ -11,6 +12,10 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.3.0",
     "astro": "^2.0.18"
+  },
+  "devDependencies": {
+    "sass": "^1.59.3"
   }
 }

@@ -1,0 +1,90 @@
+---
+---
+<div
+    x-data="{showMenu: false}"
+    class="h-24 z-40 relative container mx-auto px-6 flex items-center justify-between text-white"
+>
+<div>
+  <a href="/" class="lowercase font-normal text-xl">travelens</a>
+</div>
+<div class="flex items-center justify-center font-normal relative z-10">
+  <button class="md:hidden" x-on:click="showMenu = true">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="text-white h-6 w-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+  </button>
+  <div class="hidden md:flex items-center justify-center">
+    <a href="/trips" class="mx-6">Trips</a>
+    <a href="/countries" class="mx-6">Countries</a>
+    <a href="/years" class="mx-6">Years</a>
+  </div>
+</div>
+<div class="flex">
+  <a href="#" class="ml-4">
+    <svg
+      class="w-6 h-6"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+    </svg>
+  </a>
+  <a href="#" class="ml-4">
+    <svg
+      class="w-6 h-6"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+    </svg>
+  </a>
+</div>
+<div
+  x-show="showMenu"
+  class="fixed inset-0 w-screen h-screen md:hidden flex flex-col items-center justify-center text-2xl space-y-4 bg-pink-100 text-white z-40"
+>
+  <button
+    x-on:click="showMenu = false"
+    class="absolute top-0 right-0 mt-12 mr-12 text-white"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-10 w-10"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+  <a href="/products" class="mx-6">Shop</a>
+  <a href="/about" class="mx-6">About</a>
+  <a href="/blog" class="mx-6">Articles</a>
+</div>
+</div>

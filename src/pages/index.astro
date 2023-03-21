@@ -1,42 +1,22 @@
 ---
-import '@fortawesome/fontawesome-free/css/all.min.css'
-import '../sass/main.scss'
+import Layout from '../layouts/Layout.astro'
+import Header from '../components/Header.astro'
+import Hero from '../components/Hero.astro'
+import About from '../components/About.astro'
+import Trips from '../components/Trips.astro'
+// import LeftFeature from '../components/LeftFeature.astro'
+// import Testimonials from '../components/Testimonials.astro'
+// import RightFeature from '../components/RightFeature.astro'
+import Footer from '../components/Footer.astro'
 ---
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Eventually by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<style lang="sass" />
-	</head>
-	<body class="is-preload">
 
-		<!-- Header -->
-			<header id="header">
-				<h1>Travels Through A Lens</h1>
-				<p><a href="https://christham.net">Chris Tham</a>'s travelogue web site.
-					This documents all the trips we have taken
-					over the years, to various countries.
-					This site is currently under construction.
-				</p>
-			</header>
-
-		<!-- Footer -->
-			<footer id="footer">
-				<ul class="icons">
-					<li><a href="https://twitter.com/Chris1Tham" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="https://www.facebook.com/chris1tham/" class="icon brands fa-facebook"><span class="label">Facebook</span></a></li>
-					<li><a href="https://www.instagram.com/chris1tham/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-					<li><a href="https://github.com/travelens" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-				</ul>
-				<ul class="copyright">
-					<li>&copy; Copyright 2023</li><li><a href="https://christham.net">Chris Tham</a></li>
-				</ul>
-			</footer>
-
-		<!-- Scripts -->
-			<script src="../scripts/main.js"></script>
-
-	</body>
-</html>
+<Layout title="Travels Through A Lens.">
+  <Header />
+  <Hero />
+  <About />
+  <Trips />
+  <!-- <LeftFeature />
+  <Testimonials />
+  <RightFeature /> -->
+  <Footer />
+</Layout>

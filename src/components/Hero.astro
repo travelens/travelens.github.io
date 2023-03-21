@@ -1,0 +1,122 @@
+---
+import { Image } from 'astro:assets'
+
+import NewYork from '../assets/countries/New York.jpeg'
+import Paris from '../assets/countries/Paris.jpeg'
+import Rome from '../assets/countries/Rome.jpeg'
+
+const bgFadein = '3s'
+const bgTransition = '3s'
+const bgSlide = '36s'
+const bgImages = [
+  NewYork,
+  Paris,
+  Rome,
+]
+---
+
+<script is:inline>
+  const slideshow = () => ({
+    current: 0,
+    images: [
+      '/images/Cowarra Dam.jpeg',
+      '/images/Mayfield Garden 2014.jpeg',
+      '/images/Mayfield Garden.jpeg',
+    ],
+    init() {
+      window.setInterval(() => {
+        this.current =
+          this.current < this.images.length - 1 ? this.current + 1 : 0
+      }, 6000)
+    },
+  })
+</script>
+<div
+  x-data="slideshow()"
+  x-init="init()"
+  class="-mt-24 relative w-full h-screen bg-black flex items-center justify-center overflow-hidden"
+>
+  <div class="absolute z-10 text-center text-white text-center px-6">
+    <div class="text-xs uppercase tracking-widest">travelens</div>
+    <h1 class="text-3xl md:text-5xl font-display font-semibold mt-2">
+      Travels Through A Lens
+    </h1>
+    <p class="mt-4">
+      <a href="https://christham.net">Chris Tham</a>'s travelogue web site. This
+      documents all the trips we have taken over the years, to various
+      countries. This site is currently under construction.
+    </p>
+    <div class="max-w-sm mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+      <a
+        href="#trips"
+        class="inline-block bg-pink-400 text-white text-sm tracking-widest font-heading px-8 py-4"
+        x-on:click.prevent="$scrollTo"
+      >
+        Explore Trips
+      </a>
+      <a
+        href="#about"
+        class="inline-block bg-pink-200 text-gray-700 text-sm tracking-widest font-heading px-8 py-4"
+        x-on:click.prevent="$scrollTo"
+      >
+        About
+      </a>
+    </div>
+  </div>
+  <div class="bgimg">
+    {
+      bgImages.map((image, i) => (
+        <div x-bind:class={'current == ' + i + " ? 'bgactive' : ''"}>
+          <Image src={image} class="w-full h-full object-cover" alt={image.src}/>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style define:vars={{ bgFadein, bgTransition, bgSlide }}>
+  .bgimg {
+    transition: opacity var(--bgFadein) s ease-in-out;
+    position: absolute;
+    height: 100%;
+    left: 0;
+    opacity: 0.5;
+    top: 0;
+    width: 100%;
+  }
+
+  .bgimg div {
+    transition: opacity var(--bgTransition) ease;
+    animation: bg var(--bgSlide) linear infinite;
+    background-size: cover;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 130%;
+    opacity: 0;
+    overflow: hidden;
+
+    @media only screen and (max-width: 1280px) {
+      animation: bg calc(var(--bgSlide) * 0.65) linear infinite;
+    }
+
+    @media only screen and (max-width: 768px) {
+      animation: bg calc(var(--bgSlide) * 0.4) linear infinite;
+    }
+  }
+
+  .bgimg .bgactive {
+    opacity: 1;
+  }
+
+  @keyframes bg {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-15%);
+    }
+  }
+</style>

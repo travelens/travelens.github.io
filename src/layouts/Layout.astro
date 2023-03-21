@@ -10,16 +10,25 @@ const { title } = Astro.props;
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="font-sans antialiased bg-gray-100 text-gray-700">
 		<slot />
 	</body>
 </html>
-<style is:global>
+<script>
+	import Alpine from 'alpinejs'
+	import scrollTo from 'alpinejs-scroll-to'
+	
+	window.Alpine = Alpine;
+	Alpine.plugin(scrollTo)
+	Alpine.start()
+  </script>
+<!-- <style is:global>
 	:root {
 		--accent: 124, 58, 237;
 		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
@@ -32,4 +41,4 @@ const { title } = Astro.props;
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
 			Bitstream Vera Sans Mono, Courier New, monospace;
 	}
-</style>
+</style> -->

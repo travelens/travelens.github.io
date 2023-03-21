@@ -1,0 +1,114 @@
+---
+import { Image } from 'astro:assets'
+import Australia from '../assets/countries/Canberra.jpeg'
+import Americas from '../assets/countries/USA.jpeg'
+import China from '../assets/countries/Hong Kong.jpeg'
+import Europe from '../assets/countries/Paris.jpeg'
+import Japan from '../assets/countries/Tokyo 2.jpeg'
+import SEA from '../assets/countries/Singapore.jpeg'
+
+const Places = [
+  {
+    name: "Australia and New Zealand",
+    description: "Australia is where we live. New Zealand or Aotearoa ('land of the long white cloud') is a neighbour country with a strikingly beautiful set of islands which we have visited several times.",
+    mdcol: 2,
+    lgcol: 2,
+    mdrow: 0,
+    lgrow: 0,
+    image: Australia,
+    href: "/Australia"
+  },
+  {
+    name: "Americas",
+    description: "I have visited the United States of America, but not since the 2000s.",
+    mdcol: 1,
+    lgcol: 1,
+    mdrow: 0,
+    lgrow: 0,
+    image: Americas,
+    href: "/Americas"
+  },
+  {
+    name: "China",
+    description: "We have visited the Special Administrative Regions of Hong Kong and Macau many times.",
+    mdcol: 2,
+    lgcol: 2,
+    mdrow: 0,
+    lgrow: 0,
+    image: China,
+    href: "/China"
+  },
+  {
+    name: "Europe",
+    description: "We have visited France, Germany, Italy and the UK.",
+    mdcol: 1,
+    lgcol: 1,
+    mdrow: 0,
+    lgrow: 0,
+    image: Europe,
+    href: "/Europe"
+  },
+  {
+    name: "Japan",
+    description: "I studied Japanese for a few years and we have visted several times.",
+    mdcol: 2,
+    lgcol: 2,
+    mdrow: 0,
+    lgrow: 0,
+    image: Japan,
+    href: "/Japan"
+  },
+  {
+    name: "South East Asia",
+    description: "I was born in Malaysia, but we have also visited Singapore and Thailand.",
+    mdcol: 2,
+    lgcol: 2,
+    mdrow: 0,
+    lgrow: 0,
+    image: SEA,
+    href: "/SEA"
+  },
+]
+---
+<div
+  id="trips"
+  class="p-4 grid grid-cols-1 md:grid-cols-5 grid-rows-2 gap-4 md:h-screen"
+>
+
+  {Places.map((place) => (
+    <a
+      href={place.href}
+      class:list={[
+        'relative block bg-black text-white',
+        place.mdcol && 'md:col-span-' + place.mdcol,
+        place.lgcol && 'lg:col-span-' + place.lgcol,
+        place.mdrow && 'md:row-span-' + place.mdrow,
+        place.lgrow && 'lg:row-span-' + place.lgrow,
+        'hover:opacity-75 transition-opacity duration-500'
+      ]}
+    >
+      <div class="relative z-10 p-12">
+        <h3 class="font-display text-2xl">{place.name}</h3>
+        <p class="text-sm mt-2">{place.description}</p>
+        <div
+          class="inline-block bg-pink-200 text-gray-700 text-sm tracking-widest font-heading px-8 py-4 mt-6"
+        >
+          View Trips
+        </div>
+      </div>
+      <Image
+        src={place.image}
+        width={2048}
+        alt={place.name}
+        class="absolute inset-0 w-full h-full object-cover opacity-50"
+      />
+    </a>
+  ))}
+</div>
+<div class="text-center py-12">
+  <a
+    href="#"
+    class="inline-block bg-pink-400 text-white text-sm tracking-widest font-heading px-8 py-4"
+    >View All Trips</a
+  >
+</div>

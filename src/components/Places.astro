@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content'
+import { Image } from 'astro:assets'
+
+const places = await getCollection('place')
+---
+<div
+  id="places"
+  class="p-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 md:grid-rows-4 lg:grid-rows-2 gap-4 md:h-screen"
+>
+
+  {places.map((place) => (
+    <a
+      href={'/place/' + place.slug}
+      class:list={[
+        'relative block bg-black text-white',
+        'md:col-span-' + place.data.width,
+        'hover:opacity-75 transition-opacity duration-500 shadow-lg shadow-neutral-400'
+      ]}
+    >
+      <div class="relative z-10 p-12 md:p-6 lg:p-12">
+        <h3 class="font-display text-2xl">{place.data.title}</h3>
+        <p class="text-sm mt-2">{place.data.description}</p>
+        <div
+          class="inline-block bg-pink-200 text-gray-700 text-sm tracking-widest font-heading px-8 py-4 mt-6 hover:bg-pink-500 hover:text-black"
+        >
+          View Trips
+        </div>
+      </div>
+      <Image
+        src={place.data.image}
+        width={2048}
+        alt={place.data.title}
+        class="absolute inset-0 w-full h-full object-cover opacity-50"
+      />
+    </a>
+  ))}
+</div>
+<div class="text-center py-12">
+  <a
+    href="/trips"
+    class="inline-block bg-pink-400 text-white text-sm tracking-widest font-heading px-8 py-4"
+    >View All Trips</a
+  >
+</div>

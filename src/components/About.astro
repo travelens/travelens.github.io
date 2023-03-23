@@ -1,53 +1,50 @@
 ---
----
+import { Image } from 'astro:assets'
 
-<div
-  id="about"
-  class="container mx-auto px-6 flex flex-wrap items-center py-24"
->
-  <div class="w-full lg:flex-1">
-    <div class="uppercase text-sm text-gray-700 tracking-widest">
-      About travelens
+import Chris from '../assets/about/Chris.jpeg'
+import Ghan from '../assets/about/The Ghan.jpeg'
+import Rome from '../assets/countries/Rome 2.jpeg'
+---
+<div id="about" class="py-12 px-12">
+		
+  <div class="container mx-auto flex flex-wrap">
+    <div class="w-full md:w-1/2 md:pr-4 flex flex-wrap mb-12 md:mb-0">
+      <div class="p-2 w-1/2">
+        <Image src={Chris} class="shadow-lg shadow-neutral-400 bg-white p-4 w-full h-64 object-cover" alt="Chris"/>
+      </div>
+      <div class="p-2 w-1/2">
+        <Image src={Rome} class="shadow-lg shadow-neutral-400 bg-white p-4 w-full h-64 object-cover" alt="Rome"/>
+      </div>
+      <div class="p-2 w-full">
+        <Image src={Ghan} class="shadow-lg shadow-neutral-400 bg-white p-4 w-full h-64 object-cover" alt="The Ghan"/>
+      </div>
     </div>
-    <h2 class="text-3xl md:text-4xl font-semibold font-display mt-3">
-      Travels Through A Lens
-    </h2>
+    <div class="w-full md:w-1/2 md:pl-4">
+      <div class="uppercase text-sm text-pink-600 tracking-widest">
+        travelens
+      </div>
+      <h2 class="font-display font-bold text-5xl mb-10">Travels Through A Lens</h2>
+      <div class="max-w-lg">
+        <p class="mb-6 text-gray-700">Hi there! My name is Chris Tham. I live in Sydney, but love travelling.</p>
+        <p class="mb-6 text-gray-700">This web site is a
+          celebration of the wonderful trips we have taken across many countries, and
+          I hope you enjoy them as much as we did taking them.</p>
+        <p class="mb-2 text-gray-700">My personal site:</p>
+        <a
+        href="https://christham.net"
+        class="inline-block bg-pink-400 text-white text-sm tracking-widest font-heading px-8 py-4"
+        >ChrisTham.net</a
+        >
+        <p class="mt-6 mb-2 text-gray-700">My professional world travel and photography site:</p>
+        <a
+          href="https://visualvoyager.net"
+          class="inline-block bg-pink-200 text-gray-700 text-sm tracking-widest font-heading px-8 py-4"
+        >
+          VisualVoyager.net
+        </a>
+
+      </div>
+    </div>
   </div>
-  <div class="w-full lg:w-auto text-center">
-    <svg
-      class="inline-block w-32 h-32 -mb-10 -mt-4 lg:mt-0 lg:mb-0 lg:transform lg:rotate-90 lg:-ml-8"
-      x="0px"
-      y="0px"
-      viewBox="0 0 100 125"
-    >
-      <path
-        d="M91.8 45c-3.9 0-5.9 2.3-7.7 4.3-1.7 2-3.2 3.7-6.2 3.7s-4.5-1.7-6.2-3.7C70 47.3 68 45 64 45c-3.9 0-5.9 2.3-7.7 4.3-1.7 2-3.2 3.7-6.2 3.7s-4.5-1.7-6.2-3.7c-1.8-2-3.8-4.3-7.7-4.3-3.9 0-5.9 2.3-7.7 4.3-1.7 2-3.2 3.7-6.2 3.7s-4.5-1.7-6.2-3.7c-1.8-2-3.8-4.3-7.7-4.3-.6 0-1 .4-1 1s.4 1 1 1c3 0 4.5 1.7 6.2 3.7 1.8 2 3.8 4.3 7.7 4.3 3.9 0 5.9-2.3 7.7-4.3 1.7-2 3.2-3.7 6.2-3.7s4.5 1.7 6.2 3.7c1.8 2 3.8 4.3 7.7 4.3 3.9 0 5.9-2.3 7.7-4.3 1.7-2 3.2-3.7 6.2-3.7s4.5 1.7 6.2 3.7c1.8 2 3.8 4.3 7.7 4.3 3.9 0 5.9-2.3 7.7-4.3 1.7-2 3.2-3.7 6.2-3.7.6 0 1-.4 1-1s-.4-1-1-1z"
-      ></path>
-    </svg>
-  </div>
-  <div class="w-full lg:flex-1">
-    <p>
-      Hi there! My name is Chris Tham. I live in Sydney, but love travelling.
-    </p>
-    <p>
-      This web site is a
-      celebration of the wonderful trips we have taken across many countries, and
-      I hope you enjoy them as much as we did taking them.
-    </p>
-    </p>
-      Related sites:
-    <p>
-    <a
-      href="https://christham.net"
-      class="inline-block bg-pink-400 text-white text-sm tracking-widest font-heading px-8 py-4"
-      >Chris Tham's personal site</a
-    >
-    <a
-      href="https://visualvoyager.net"
-      class="inline-block bg-pink-200 text-gray-700 text-sm tracking-widest font-heading px-8 py-4"
-      x-on:click.prevent="$scrollTo"
-    >
-      Visual Voyager
-    </a>
-  </div>
+
 </div>

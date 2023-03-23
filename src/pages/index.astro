@@ -3,10 +3,7 @@ import Layout from '../layouts/Layout.astro'
 import Header from '../components/Header.astro'
 import Hero from '../components/Hero.astro'
 import About from '../components/About.astro'
-import Trips from '../components/Trips.astro'
-// import LeftFeature from '../components/LeftFeature.astro'
-// import Testimonials from '../components/Testimonials.astro'
-// import RightFeature from '../components/RightFeature.astro'
+import Places from '../components/Places.astro'
 import Footer from '../components/Footer.astro'
 ---
 
@@ -14,7 +11,14 @@ import Footer from '../components/Footer.astro'
   <Header />
   <Hero />
   <About />
-  <Trips />
+  <div class="max-w-xl mx-auto text-center py-12">
+		<div class="w-24 h-2 bg-pink-500 mb-4 mx-auto"></div>
+		<h2 class="font-display font-bold text-5xl mb-6">Trips</h2>
+		<p class="font-light text-gray-600 mb-6 leading-relaxed">I started travelling in the 1980s, in high school, but did not go far because I did not have much money. After I started working in the late 1980s, I mainly travelled for work reasons. In those days, we were mainly trying to pay off our mortgage, so most of our trips were domestic. We started travelling overseas for fun in the late 1990s after paying off our mortgage, but then in the early 2000s we bought a new house so had to curtail our travel desires. Most of our travel overseas have been in the 2010s as we had more disposable income.</p>
+
+    <p class="font-light text-gray-600 mb-6 leading-relaxed">The COVID19 worldwide pandemic in 2020 forced many people into lockdown, unable to leave their homes. I took the opportunity of load (or scan), edit and catalog all the photos of travels we have taken in the last 30 years. Please join me in exploring the trips we have taken.</p>
+	</div>
+  <Places />
   <!-- <LeftFeature />
   <Testimonials />
   <RightFeature /> -->

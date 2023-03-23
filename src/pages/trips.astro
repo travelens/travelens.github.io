@@ -1,0 +1,32 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { getCollection } from 'astro:content'
+import { Image } from 'astro:assets'
+import Layout from '../layouts/Layout.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import Cover from '../assets/countries/Penang.jpeg'
+const trips = await getCollection('trip')
+---
+<Layout title="Travels Through A Lens.">
+  <Header />
+  <div class="-mt-24 relative w-full py-12 px-12 bg-black">
+		<!-- hero section -->
+		<div class="relative z-10 text-center py-48">
+			<h1 class="text-white text-center text-6xl font-display font-bold mb-12">Trips</h1>
+		</div>
+
+		<!-- banner image -->
+		<Image src={Cover} class="w-full h-full absolute inset-0 object-cover opacity-70" alt="Cover" />
+	</div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-neutral-700">
+    {trips.map((trip) => (
+      <a href={trip.data.href} class="bg-black relative block flex items-center justify-center h-72 font-heading text-white uppercase tracking-widest hover:opacity-75">
+        <div class="relative z-10">{trip.data.title}</div>
+        <Image src={trip.data.image} class="absolute inset-0 w-full h-full object-cover opacity-50" alt={trip.data.title} />
+      </a>
+
+    ))}
+	</div>
+  <Footer />
+</Layout>

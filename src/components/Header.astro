@@ -1,63 +1,64 @@
 ---
+import { NavigationLinks } from "../config"
 ---
 <div
     x-data="{showMenu: false}"
     class="h-24 z-40 relative container mx-auto px-6 flex items-center justify-between text-white"
 >
-<div>
-  <a href="/" class="lowercase font-normal text-xl  hover:text-pink-200">travelens</a>
-</div>
-<div class="flex items-center justify-center font-normal relative z-10">
-  <button class="md:hidden" x-on:click="showMenu = true">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="text-white h-6 w-6"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M4 6h16M4 12h16M4 18h16"></path>
-    </svg>
-  </button>
-  <div class="hidden md:flex items-center justify-center">
-    <a href="/trips" class="mx-6 hover:text-pink-200">Trips</a>
-    <a href="/#places" class="mx-6 hover:text-pink-200">Places</a>
-    <a href="/#about" class="mx-6 hover:text-pink-200">About</a>
+  <div>
+    <a href="/" class="lowercase font-normal text-xl  hover:text-pink-200">travelens</a>
   </div>
-</div>
-<div class="flex">
-  <a href="https://github.com/travelens" class="ml-4 hover:text-pink">
-    <span class="w-6 h-6 mr-2 i-fa6-brands-github"/>
-  </a>
-</div>
-<div
-  x-show="showMenu"
-  class="fixed inset-0 w-screen h-screen md:hidden flex flex-col items-center justify-center text-2xl space-y-4 bg-pink-100 text-white z-40"
->
-  <button
-    x-on:click="showMenu = false"
-    class="absolute top-0 right-0 mt-12 mr-12 text-white"
+  <div class="flex items-center justify-center font-normal relative z-10">
+    <button class="md:hidden" x-on:click="showMenu = true">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="text-white h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+    <div class="hidden md:flex items-center justify-center">
+      {NavigationLinks.map(link => (
+        <a href={link.href} class="mx-6 hover:text-pink-200">{link.name}</a>
+      ))}
+    </div>
+  </div>
+  <div class="flex">
+    <a href="https://github.com/travelens" class="ml-4 hover:text-pink">
+      <span class="w-6 h-6 mr-2 i-fa6-brands-github"/>
+    </a>
+  </div>
+  <div
+    x-show="showMenu"
+    class="fixed inset-0 w-screen h-screen md:hidden flex flex-col items-center justify-center text-2xl space-y-4 bg-pink-100 text-black z-40"
   >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="h-10 w-10"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
+    <button
+      x-on:click="showMenu = false"
+      class="absolute top-0 right-0 mt-12 mr-12 text-pink-600"
     >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M6 18L18 6M6 6l12 12"></path>
-    </svg>
-  </button>
-  <a href="/trips" class="mx-6">Trips</a>
-  <a href="/#places" class="mx-6">Places</a>
-  <a href="/#about" class="mx-6">About</a>
-</div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-10 w-10"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+    {NavigationLinks.map(link => (
+      <a href={link.href} class="mx-6 hover:text-pink-600">{link.name}</a>
+    ))}
+  </div>
 </div>

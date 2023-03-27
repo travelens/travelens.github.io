@@ -1,7 +1,8 @@
 ---
+import { SiteMetadata, NavigationLinks, Websites } from "../config"
 ---
 <div
-class="bg-pink-100 text-gray-800 text-opacity-40 font-semibold text-xs tracking-widest px-12"
+class="bg-pink-100 text-gray-800 text-opacity-50 font-semibold text-xs tracking-widest px-12"
 >
 <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 py-12">
   <div>
@@ -11,30 +12,31 @@ class="bg-pink-100 text-gray-800 text-opacity-40 font-semibold text-xs tracking-
     <div class="font-display text-gray-900 text-sm tracking-widest mb-6">
       Voyages
     </div>
-    <a href="/trips" class="block mb-4">Trips</a>
-    <a href="/#places" class="block mb-4">Places</a>
-    <a href="/#about" class="block mb-4">About</a>
+      {NavigationLinks.map(link => (
+        <a href={link.href} class="block mb-4 hover:text-pink">{link.name}</a>
+      ))}
   </div>
   <div>
     <div class="font-display text-gray-900 text-sm tracking-widest mb-6">
       Other Sites
     </div>
-    <a href="https://christham.net" class="block mb-4">Chris Tham</a>
-    <a href="https://visualvoyager.net" class="block mb-4">Visual Voyager</a>
-    <a href="https://hellotham.com" class="block mb-4">Hello Tham</a>
+    {Websites.map(site => (
+      <a href={site.link} class="block mb-4 hover:text-pink">{site.website}</a>
+    ))}
   </div>
   <div>
     <div class="font-display text-gray-900 text-sm tracking-widest mb-6">
       Social links
     </div>
-    <a href="https://www.facebook.com/chris1tham/" class="block mb-4 hover:text-pink"><span class="w-6 h-6 mr-2 i-fa6-brands-facebook"/>Facebook</a>
-    <a href="https://www.instagram.com/chris1tham/" class="block mb-4 hover:text-pink"><span class="w-6 h-6 mr-2 i-fa6-brands-instagram"/>Instagram</a>
-    <a href="https://github.com/travelens" class="block mb-4 hover:text-pink"><span class="w-6 h-6 mr-2 i-fa6-brands-github"/>Github</a>
+    <span class="i-fa6-brands-linkedin i-fa6-brands-facebook i-fa6-brands-instagram i-fa6-brands-github hidden">Ugly Hack</span>
+    {SiteMetadata.social.map(link => (
+      <a href={link.link} class="block mb-4 hover:text-pink"><span class={'w-6 h-6 mr-2 i-fa6-brands-' + link.icon} />{link.name}</a>
+    ))}
   </div>
 </div>
 </div>
 <div
-class="bg-pink-200 text-gray-500 text-sm lg:text-base text-center font-heading font-light tracking-widest uppercase p-2"
+class="bg-pink-200 text-neutral-600 text-sm lg:text-base text-center font-heading font-light tracking-widest uppercase p-2"
 >
-©2023 <a href="https://christham.net">Chris Tham</a>
+&copy;{new Date().getFullYear()} <a href="https://christham.net" class="hover:text-pink-600">Chris Tham</a>
 </div>

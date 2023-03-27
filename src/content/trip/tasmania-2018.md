@@ -5,7 +5,7 @@ location: Tasmania
 start: 2018-05-01T00:00:00+11:00
 end: 2018-05-05T00:00:00+11:00
 description: We returned back to Tasmania on 1-5 May 2018 and mainly visited the Freycinet National Park and Hobart.
-image: about/Chris.jpeg
+image: ~/assets/about/Chris.jpeg
 tags:
   - Oceania
 href: /Tasmania-2018

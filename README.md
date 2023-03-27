@@ -29,9 +29,13 @@ Inside this project, you'll see the following folders and files:
 │   ├── assets/
 │   │   └── image.jpg
 │   ├── components/
-│   │   └── Card.astro
+│   │   └── Header.astro
 │   ├── content/
-│   │   └── article.md
+|   │   ├── place/
+|   │   │   └── place.md
+|   │   ├── trip/
+|   │   │   └── trip.md
+│   │   └── config.ts
 │   ├── layouts/
 │   │   └── Layout.astro
 │   └── pages/

@@ -1,10 +1,10 @@
 // 1. Import your utilities and schemas
-import { z, defineCollection, image } from 'astro:content'
+import { z, defineCollection } from 'astro:content'
 
 // 2. Define your collections
 
 const placeCollection = defineCollection({
-  schema: z.object({
+  schema: ({ image }) =>  z.object({
     title: z.string(),
     description: z.string(),
     image: image(),
@@ -13,7 +13,7 @@ const placeCollection = defineCollection({
 })
 
 const tripCollection = defineCollection({
-  schema: z.object({
+  schema: ({ image }) =>  z.object({
     draft: z.boolean().optional(),
     place: z.string(),
     location: z.string(),

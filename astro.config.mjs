@@ -7,5 +7,7 @@ export default defineConfig({
   experimental: {
     assets: true
   },
-  integrations: [UnoCSS()]
+  integrations: [UnoCSS({
+    injectReset: true
+  })]
 });

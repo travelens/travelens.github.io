@@ -15,7 +15,7 @@ const places = await getCollection('place')
       class:list={[
         'relative block bg-black text-white',
         'md:col-span-' + place.data.width,
-        'hover:opacity-75 transition-opacity duration-500 shadow-lg shadow-neutral-400'
+        'hover:opacity-75 transition-opacity duration-500 shadow-lg shadow-neutral-400 rounded-lg'
       ]}
     >
       <div class="relative z-10 p-12 md:p-6 lg:p-12">
@@ -31,7 +31,7 @@ const places = await getCollection('place')
         src={place.data.image}
         width={2048}
         alt={place.data.title}
-        class="absolute inset-0 w-full h-full object-cover opacity-50"
+        class="absolute inset-0 w-full h-full object-cover opacity-50 rounded-lg"
       />
     </a>
   ))}

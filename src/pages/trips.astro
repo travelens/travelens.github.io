@@ -1,9 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
 import { Image } from 'astro:assets'
-import Layout from '../layouts/Layout.astro'
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
+import { Layout, Header, Footer } from 'astro-travelens'
 import Cover from '../assets/countries/Penang.jpeg'
 const trips = await getCollection('trip')
 ---

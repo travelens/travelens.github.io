@@ -18,15 +18,11 @@ const bgImages = [
 <script is:inline>
   const slideshow = () => ({
     current: 0,
-    images: [
-      '/images/Cowarra Dam.jpeg',
-      '/images/Mayfield Garden 2014.jpeg',
-      '/images/Mayfield Garden.jpeg',
-    ],
+    images: 3,
     init() {
       window.setInterval(() => {
         this.current =
-          this.current < this.images.length - 1 ? this.current + 1 : 0
+          this.current < this.images - 1 ? this.current + 1 : 0
       }, 6000)
     },
   })
@@ -67,7 +63,7 @@ const bgImages = [
     {
       bgImages.map((image, i) => (
         <div x-bind:class={'current == ' + i + " ? 'bgactive' : ''"}>
-          <Image src={image} class="w-full h-full object-cover" alt={image.src}/>
+          <Image src={image} class="w-full h-full object-cover" alt={"Background " + i}/>
         </div>
       ))
     }

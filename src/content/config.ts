@@ -16,6 +16,7 @@ const tripCollection = defineCollection({
   schema: ({ image }) =>  z.object({
     draft: z.boolean().optional(),
     place: z.string(),
+    timezone: z.string().default('Australia/Sydney'),
     location: z.string(),
     title: z.string(),
     description: z.string(),

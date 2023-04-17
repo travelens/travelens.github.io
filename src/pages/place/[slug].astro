@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content'
 import { getCollection } from 'astro:content'
 import { Image } from 'astro:assets'
+import { Tags } from 'astro-travelens'
 import Place from '../../layouts/Place.astro'
 
 // 1. Generate a new path for every collection entry
@@ -39,12 +40,33 @@ const { Content } = await place.render();
           <div class="px-6 py-12 md:p-16 lg:p-32 flex items-center justify-center order-last" class:list={[ i % 2 == 0 && 'lg:order-first' ]}>
               <div>
                   <h3 class="text-4xl mb-6 font-display text-black leading-tight">{trip.data.title}</h3>
+                  <Tags tags={trip.data.tags} />
+                  <div class="flex items-center my-2 text-neutral-600">
+                    <span class="w-4 h-4 i-fa6-solid-calendar-days"></span>
+                    <span class="ml-1">
+                      {
+                        new Date(trip.data.start).toLocaleString('en-AU', {
+                          dateStyle: 'long',
+                          timeZone: trip.data.timezone,
+                        })
+                      }
+                    </span>
+                    <span class="w-4 h-4 mx-1 i-fa6-solid-arrow-right"></span>
+                    <span class="ml-1">
+                      {
+                        new Date(trip.data.end).toLocaleString('en-AU', {
+                          dateStyle: 'long',
+                          timeZone: trip.data.timezone,
+                        })
+                      }
+                    </span>
+                  </div>
                   <p>{trip.data.description}</p>
-                  <a href={trip.data.href} class="flex items-center mt-8 uppercase text-sm text-black font-semibold">
-                      Explore Trip 
-                      <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 5l7 7-7 7"></path>
-                      </svg>
+                  <a
+                    href={trip.data.href}
+                    class="inline-block bg-pink-400 text-white hover:bg-pink-500 text-sm tracking-widest font-heading px-8 py-4 mt-4"
+                  >
+                    Explore
                   </a>
               </div>
           </div>

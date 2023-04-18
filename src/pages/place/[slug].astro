@@ -1,9 +1,9 @@
 ---
 import type { CollectionEntry } from 'astro:content'
 import { getCollection } from 'astro:content'
-import { Image } from 'astro:assets'
-import { Tags } from 'astro-travelens'
 import Place from '../../layouts/Place.astro'
+import Document from '../../data/document'
+import Documents from '../../components/Documents.astro'
 
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
@@ -18,9 +18,11 @@ export interface Props {
   place: CollectionEntry<"place">
 }
 const { place } = Astro.props
-const trips = await getCollection('trip', ({ data }) => {
-  return data.place == place.data.title;
-})
+const documents = import.meta.glob<Document>('../../data/*.json', { import: 'default', eager: true })
+const trips = Object.keys(documents).map(doc => documents[doc])
+  .flat(3)
+  .filter(doc => doc.place === place.data.title && doc.collection === 'trip')
+  .sort((a,b) => +b.date - +a.date)
 const { Content } = await place.render();
 ---
 <Place place={place}>
@@ -29,47 +31,5 @@ const { Content } = await place.render();
       <Content />
     </div>
   </div>
-  <!-- <h2 class="text-center uppercase font-display text-lg md:text-xl text-black py-12 md:py-24 px-6">Trips</h2> -->
-  {trips.map((trip, i) => (
-      <div class="container mx-auto px-6 py-4 grid grid-cols-1 lg:grid-cols-2 lg:mb-24 bg-rose-50 shadow-lg shadow-neutral-400 rounded-lg">
-          <div class="relative h-52 md:h-72 lg:h-auto">
-              <a href="/category">
-                  <Image src={trip.data.image} class="absolute inset-0 w-full h-full object-cover p-4 bg-white" alt={trip.data.title}/>
-              </a>
-          </div>
-          <div class="px-6 py-12 md:p-16 lg:p-32 flex items-center justify-center order-last" class:list={[ i % 2 == 0 && 'lg:order-first' ]}>
-              <div>
-                  <h3 class="text-4xl mb-6 font-display text-black leading-tight">{trip.data.title}</h3>
-                  <Tags tags={trip.data.tags} />
-                  <div class="flex items-center my-2 text-neutral-600">
-                    <span class="w-4 h-4 i-fa6-solid-calendar-days"></span>
-                    <span class="ml-1">
-                      {
-                        new Date(trip.data.start).toLocaleString('en-AU', {
-                          dateStyle: 'long',
-                          timeZone: trip.data.timezone,
-                        })
-                      }
-                    </span>
-                    <span class="w-4 h-4 mx-1 i-fa6-solid-arrow-right"></span>
-                    <span class="ml-1">
-                      {
-                        new Date(trip.data.end).toLocaleString('en-AU', {
-                          dateStyle: 'long',
-                          timeZone: trip.data.timezone,
-                        })
-                      }
-                    </span>
-                  </div>
-                  <p>{trip.data.description}</p>
-                  <a
-                    href={trip.data.href}
-                    class="inline-block bg-pink-400 text-white hover:bg-pink-500 text-sm tracking-widest font-heading px-8 py-4 mt-4"
-                  >
-                    Explore
-                  </a>
-              </div>
-          </div>
-      </div>
-  ))}
+  <Documents documents={trips} />
 </Place>

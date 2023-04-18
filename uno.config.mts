@@ -24,7 +24,6 @@ export default defineConfig({
     }),
   ],
   safelist: [
-    ...Array.from({ length: 32 }, (_, i) => `p-${i + 1}`),
     ...Array.from({ length: 3 }, (_, i) => `bg-gray-${i + 1}00`),
     ...Array.from({ length: 3 }, (_, i) => `bg-red-${i + 1}00`),
     ...Array.from({ length: 3 }, (_, i) => `bg-yellow-${i + 1}00`),
@@ -41,5 +40,9 @@ export default defineConfig({
     'text-2xl',
     'text-3xl',
     'text-4xl',
+    'i-fa6-brands-linkedin',
+    'i-fa6-brands-facebook',
+    'i-fa6-brands-instagram',
+    'i-fa6-brands-github',
   ],
 })

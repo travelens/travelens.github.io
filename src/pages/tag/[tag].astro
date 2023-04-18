@@ -1,25 +1,11 @@
 ---
 import { Image } from 'astro:assets'
-import { Tags, Layout } from 'astro-travelens'
+import { Header, Footer, Layout } from 'astro-travelens'
+import Document from '../../data/document'
+import Documents from '../../components/Documents.astro'
+
 import Cover from '../../assets/dominik-schroder-FIKD9t5_5zQ-unsplash.jpg'
 
-interface Document {
-  id: string
-  slug: string
-  base: string
-  collection: string
-  body: string
-  trip: string
-  place: string
-  timezone: string
-  location: string
-  title: string
-  description: string
-  date: Date
-  image: ImageMetadata
-  map: number[]
-  tags: string[]
-}
 
 export async function getStaticPaths() {
   const documents = import.meta.glob<Document[]>('../../data/*.json', { import: 'default', eager: true })
@@ -41,6 +27,7 @@ export interface Props {
 const { tag, documents } = Astro.props
 ---
 <Layout title={"Tag: " + tag}>
+  <Header />
   <div class="-mt-24 relative w-full bg-black flex items-center justify-center overflow-hidden">
     <div class="relative h-96">
         <Image src={Cover} class="w-full h-full object-cover opacity-50" alt="Background"/>
@@ -50,50 +37,6 @@ const { tag, documents } = Astro.props
       <h2 class="mt-4 uppercase tracking-widest text-xs text-gray-600">travelens</h2>
       <h1 class="font-display text-2xl md:text-3xl text-gray-900 mt-4">Tag: {tag}</h1>
   </div>
-  {documents.map((doc, i) => (
-    <div class="container mx-auto px-6 py-4 grid grid-cols-1 lg:grid-cols-2 mb-4 bg-rose-50 shadow-lg shadow-neutral-400 rounded-lg">
-      <div class="relative h-52 md:h-72 lg:h-auto">
-        <a href={doc.base + doc.slug}>
-          <img
-            src={doc.image.src}
-            width={1024}
-            class="absolute inset-0 w-full h-full object-cover p-4 bg-white hover:bg-pink-200"
-            alt={doc.title}
-          />
-        </a>
-      </div>
-        <div class="px-6 py-12 md:p-16 lg:p-32 flex items-center justify-center order-last" class:list={[ i % 2 == 0 && 'lg:order-first' ]}>
-          <div>
-            <a href={doc.base + doc.slug}>
-              <h3 class="text-4xl mb-2 font-display text-black hover:text-pink leading-tight">{doc.title}</h3>
-            </a>
-            <div class="my-2 text-neutral-600">
-              <div>
-                <span class="w-4 h-4 i-fa6-solid-location-arrow"></span>
-                <span class="ml-1 mr-4">{doc.location}</span>
-              </div>
-              <div>
-                <span class="w-4 h-4 i-fa6-solid-calendar-days"></span>
-                <span class="ml-1">
-                  {
-                    new Date(doc.date).toLocaleString('en-AU', {
-                      dateStyle: 'long',
-                      timeStyle: 'short',
-                      timeZone: doc.timezone,
-                    })
-                  }
-                </span>
-              </div>
-            </div>
-            <p>{doc.description}</p>
-            <a
-              href={doc.base + doc.slug}
-              class="inline-block bg-pink-400 text-white hover:bg-pink-500 text-sm tracking-widest font-heading px-8 py-4 mt-4"
-            >
-              Read
-            </a>
-          </div>
-        </div>
-    </div>
-  ))}
+  <Documents documents={documents} />
+  <Footer />
 </Layout>

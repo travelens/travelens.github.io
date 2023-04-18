@@ -992,10 +992,10 @@ astro-seo@^0.7.2:
   resolved "https://registry.yarnpkg.com/astro-seo/-/astro-seo-0.7.2.tgz#b6ef5d1590063631c03394fbeb501973a0460912"
   integrity sha512-YnSqj4E6vbF7wRk3gcxOPHBjenhfgaINEJlTsnu4sovAyfyGEdQksbioYKoZ+vERRDaYvEricfSzC6fc9lieww==
 
-astro-travelens@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/astro-travelens/-/astro-travelens-1.0.4.tgz#d5bef91f48a2db43ee20a93a5c27902807e62612"
-  integrity sha512-AAKhk8NyYZE5l2Vnw5Gl8ynq7v/N6eDTkwn2UeTkV/u6JfZbWHzhOJERu9Js3Wb26mtDw1g3RMdKNT76rAc/qQ==
+astro-travelens@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/astro-travelens/-/astro-travelens-1.0.6.tgz#cb1eb3cddbc389d7c1fd82e470d63c82cb74fad2"
+  integrity sha512-4rpnkkmmcZac5rJSiHviCoIuoavkH6Lgg7IFzJD5gTPhgRuNW/a7nUXDlrKbwBT181LKuhZSPIdDi8txK28oxQ==
   dependencies:
     astro "^2.3.0"
 

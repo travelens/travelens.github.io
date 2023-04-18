@@ -1,25 +1,8 @@
 ---
 import { Image } from 'astro:assets'
 import { Layout, Header, Footer } from 'astro-travelens'
+import Document from '../data/document'
 import Cover from '../assets/dominik-schroder-FIKD9t5_5zQ-unsplash.jpg'
-
-interface Document {
-  id: string
-  slug: string
-  base: string
-  collection: string
-  body: string
-  trip: string
-  place: string
-  timezone: string
-  location: string
-  title: string
-  description: string
-  date: Date
-  image: ImageMetadata
-  map: number[]
-  tags: string[]
-}
 
 const documents = import.meta.glob<Document[]>('../data/*.json', { import: 'default', eager: true })
 // const tags = Object.keys(documents).map(doc => documents[doc].map(entry => entry.tags.map(tag => {

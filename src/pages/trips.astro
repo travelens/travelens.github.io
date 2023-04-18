@@ -1,9 +1,13 @@
 ---
-import { getCollection } from 'astro:content'
+import Document from '../data/document'
 import { Image } from 'astro:assets'
 import { Layout, Header, Footer } from 'astro-travelens'
 import Cover from '../assets/countries/Penang.jpeg'
-const trips = await getCollection('trip')
+const documents = import.meta.glob<Document>('../data/*.json', { import: 'default', eager: true })
+const trips = Object.keys(documents).map(doc => documents[doc])
+  .flat(3)
+  .filter(doc => doc.collection === 'trip')
+  .sort((a,b) => new Date(b.date) - new Date(a.date))
 ---
 <Layout title="Trips">
   <Header />
@@ -17,10 +21,10 @@ const trips = await getCollection('trip')
 		<Image src={Cover} class="w-full absolute inset-0 object-cover opacity-70" alt="Cover" />
 	</div>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-neutral-700">
-    {trips.sort((a, b) => +b.data.start - +a.data.start).map((trip) => (
-      <a href={trip.data.href} class="bg-black relative block flex items-center justify-center h-72 font-heading text-white uppercase tracking-widest hover:opacity-75">
-        <div class="relative z-10">{trip.data.title}</div>
-        <Image src={trip.data.image} class="absolute inset-0 w-full h-full object-cover opacity-50" alt={trip.data.title} />
+    {trips.map((trip) => (
+      <a href={trip.base + trip.slug} class="bg-black relative block flex items-center justify-center h-72 font-heading text-white uppercase tracking-widest hover:opacity-75">
+        <div class="relative z-10">{trip.title}</div>
+        <img src={trip.image.src} class="absolute inset-0 w-full h-full object-cover opacity-50" alt={trip.title} />
       </a>
 
     ))}

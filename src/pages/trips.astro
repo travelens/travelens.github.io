@@ -14,7 +14,7 @@ const trips = await getCollection('trip')
 		</div>
 
 		<!-- banner image -->
-		<Image src={Cover} class="w-full h-full absolute inset-0 object-cover opacity-70" alt="Cover" />
+		<Image src={Cover} class="w-full absolute inset-0 object-cover opacity-70" alt="Cover" />
 	</div>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-neutral-700">
     {trips.sort((a, b) => +b.data.start - +a.data.start).map((trip) => (

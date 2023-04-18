@@ -5,14 +5,6 @@ import Document from '../data/document'
 import Cover from '../assets/dominik-schroder-FIKD9t5_5zQ-unsplash.jpg'
 
 const documents = import.meta.glob<Document[]>('../data/*.json', { import: 'default', eager: true })
-// const tags = Object.keys(documents).map(doc => documents[doc].map(entry => entry.tags.map(tag => {
-//   return {
-//     tag: tag,
-//     href: entry.base + entry.slug,
-//     trip: entry.trip,
-//     title: entry.title
-//   }
-// }))).flat(3)
 const tags = Object.keys(documents).map(doc => documents[doc].map(entry => entry.tags)).flat(3).sort()
 const tagcount = tags.reduce((acc: Record<string, number>, curr) => {
   acc[curr] = (acc[curr] || 0) + 1;
@@ -61,7 +53,7 @@ const maxcount = tagcount[Object.keys(tagcount).reduce((a, b) => tagcount[a] > t
 		</div>
 
 		<!-- banner image -->
-		<Image src={Cover} class="w-full h-full absolute inset-0 object-cover opacity-70" alt="Cover" />
+		<Image src={Cover} class="w-full absolute inset-0 object-cover opacity-70" alt="Cover" />
 	</div>
   <Footer />
 </Layout>

@@ -67,7 +67,7 @@ const maxcount = tagcount[Object.keys(tagcount).reduce((a, b) => tagcount[a] > t
 			<h1 class="text-white text-center text-6xl font-display font-bold mt-12 mb-12">Tags</h1>
       <ul class="flex justify-center flex-wrap align-center gap-2 leading-8">
         {Object.keys(tagcount).map(tag =>
-          <li><a href={"tag/" + encodeURIComponent(tag)} class:list={[
+          <li><a href={"/tag/" + encodeURIComponent(tag)} class:list={[
             "text-black p-1 hover:py-2 shadow-lg shadow-neutral-500 rounded-full",
             "bg-" + colors[Math.floor(Math.random() * colors.length)] + "-" + (Math.floor(Math.random() * 3) + 1) + "00",
             textSize[Math.floor(tagcount[tag] * textSize.length / maxcount)],

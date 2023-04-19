@@ -4,7 +4,7 @@ import { Header, Footer, Layout } from 'astro-travelens'
 import Document from '../../data/document'
 import Documents from '../../components/Documents.astro'
 
-import Cover from '../../assets/dominik-schroder-FIKD9t5_5zQ-unsplash.jpg'
+import Cover from '../../assets/tags.jpeg'
 
 
 export async function getStaticPaths() {
@@ -30,7 +30,7 @@ const { tag, documents } = Astro.props
   <Header />
   <div class="-mt-24 relative w-full bg-black flex items-center justify-center overflow-hidden">
     <div class="relative h-96">
-        <Image src={Cover} class="w-full object-cover opacity-50" alt="Background"/>
+        <Image src={Cover} class="w-full object-cover object-center opacity-50" alt="Background"/>
     </div>
   </div>
   <div class="max-w-4xl mx-auto bg-white pt-12 px-12 lg:px-24 -mt-32 relative z-10 pb-12 mb-4">

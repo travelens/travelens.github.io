@@ -22,7 +22,7 @@ const documents = import.meta.glob<Document>('../../data/*.json', { import: 'def
 const trips = Object.keys(documents).map(doc => documents[doc])
   .flat(3)
   .filter(doc => doc.place === place.data.title && doc.collection === 'trip')
-  .sort((a,b) => new Date(b.date) - new Date(a.date))
+  .sort((a,b) => +(new Date(b.date)) - +(new Date(a.date)))
 const { Content } = await place.render();
 ---
 <Place place={place}>

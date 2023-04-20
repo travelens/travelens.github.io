@@ -12,24 +12,7 @@ const placeCollection = defineCollection({
   }),
 })
 
-const tripCollection = defineCollection({
-  schema: ({ image }) =>  z.object({
-    draft: z.boolean().optional(),
-    place: z.string(),
-    timezone: z.string().default('Australia/Sydney'),
-    location: z.string(),
-    title: z.string(),
-    description: z.string(),
-    start: z.date(),
-    end: z.date(),
-    image: image(),
-    tags: z.array(z.string()).optional(),
-    href: z.string(),
-  }),
-})
-
 // 3. Export multiple collections to register them
 export const collections = {
   place: placeCollection,
-  trip: tripCollection,
 }

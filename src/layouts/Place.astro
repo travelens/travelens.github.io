@@ -1,7 +1,12 @@
 ---
 import type { CollectionEntry } from 'astro:content'
 import { Image } from 'astro:assets'
-import { Header, Footer, Layout } from 'astro-travelens'
+// @ts-ignore 
+import Layout from 'astro-travelens/layout'
+// @ts-ignore 
+import Header from 'astro-travelens/header'
+// @ts-ignore 
+import Footer from 'astro-travelens/footer'
 
 interface Props {
     place: CollectionEntry<"place">

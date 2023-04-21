@@ -31,8 +31,7 @@ const trips = Object.keys(documents).map(doc => documents[doc])
         <div class="relative z-10">{trip.title}</div>
         <img src={trip.image.src} class="absolute inset-0 w-full h-full object-cover opacity-50" alt={trip.title} />
       </a>
-
     ))}
-	</div>
+  </div>
   <Footer />
 </Layout>

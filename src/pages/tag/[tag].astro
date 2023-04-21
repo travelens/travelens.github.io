@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets'
-import Layout from '../layouts/Layout.astro'
+import Layout from '../../layouts/Layout.astro'
 // @ts-ignore 
 import Header from 'astro-travelens/header'
 // @ts-ignore 
@@ -13,12 +13,14 @@ import Cover from '../../assets/tags.jpeg'
 
 export async function getStaticPaths() {
   const documents = import.meta.glob<Document[]>('../../data/*.json', { import: 'default', eager: true })
-  const tags = Object.keys(documents).map(doc => documents[doc].map(entry => entry.tags.map(tag => {
+  const allTags = Object.keys(documents).map(doc => documents[doc].map(entry => entry.tags)).flat(3)
+  const uniqueTags = Array.from(new Set(allTags))
+  const tags = uniqueTags.map(tag => {
     return {
       tag: tag,
       documents: Object.keys(documents).map(doc => documents[doc]).flat(3).filter(doc => doc.tags.includes(tag))
     }
-  }))).flat(3)
+  })
   return tags.map(tag => ({
     params: { tag: tag.tag }, props: { tag: tag.tag, documents: tag.documents },
   }))

@@ -39,10 +39,10 @@ const maxcount = tagcount[Object.keys(tagcount).reduce((a, b) => tagcount[a] > t
 ---
 <Layout title="Tags">
   <Header />
-  <div class="-mt-24 relative w-full h-screen py-12 px-12 bg-black">
+  <div class="-mt-24 relative w-full h-full py-6 px-6 bg-black">
 		<!-- hero section -->
 		<div class="relative z-10 text-center">
-			<h1 class="text-white text-center text-6xl font-display font-bold mt-12 mb-12">Tags</h1>
+			<h1 class="text-white text-center text-6xl font-display font-bold mt-12 mb-6">Tags</h1>
       <ul class="flex justify-center flex-wrap align-center leading-10">
         {Object.keys(tagcount).map(tag =>
           <li><a href={"/tag/" + encodeURIComponent(tag)} class:list={[
@@ -55,7 +55,7 @@ const maxcount = tagcount[Object.keys(tagcount).reduce((a, b) => tagcount[a] > t
 		</div>
 
 		<!-- banner image -->
-		<Image src={Cover} class="w-full absolute inset-0 object-cover opacity-70" alt="Cover" />
+		<Image src={Cover} class="h-full absolute inset-0 object-cover opacity-70" alt="Cover" />
 	</div>
   <Footer />
 </Layout>

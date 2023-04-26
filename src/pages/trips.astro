@@ -6,6 +6,7 @@ import Layout from '../layouts/Layout.astro'
 import Header from 'astro-travelens/header'
 // @ts-ignore 
 import Footer from 'astro-travelens/footer'
+import { SiteMetadata } from 'astro-travelens/config'
 import Cover from '../assets/countries/Penang.jpeg'
 const documents = import.meta.glob<Document>('../data/*.json', { import: 'default', eager: true })
 const trips = Object.keys(documents).map(doc => documents[doc])
@@ -13,7 +14,13 @@ const trips = Object.keys(documents).map(doc => documents[doc])
   .filter(doc => doc.collection === 'trip')
   .sort((a,b) => +new Date(b.date) - +new Date(a.date))
 ---
-<Layout title="Trips">
+<Layout
+  title="Trips"
+  description="Index of all trips"
+  date={SiteMetadata.buildTime}
+  image={Cover}
+  tags={["travel", "blog"]}
+>
   <Header />
   <div class="-mt-24 relative w-full py-12 px-12 bg-black">
 		<!-- hero section -->

@@ -1,30 +1,46 @@
 ---
+// @ts-ignore 
+import Metadata from 'astro-travelens/metadata'
+
 export interface Props {
-	title: string
+  title: string
+  description: string
+  date: Date
+  image: ImageMetadata
+  tags?: string[]
 }
 
-const { title } = Astro.props
+const { title, description, date, tags, image } = Astro.props
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body class="font-sans antialiased bg-neutral-100 text-gray-700">
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="generator" content={Astro.generator} />
+    <Metadata
+      title={title}
+      description={description}
+      date={date}
+      image={image}
+      tags={tags}
+    />
+  </head>
+  <body class="font-sans antialiased bg-neutral-100 text-gray-700">
+    <slot />
+  </body>
 </html>
 <script>
-	import Alpine from 'alpinejs'
-	import scrollTo from 'alpinejs-scroll-to'
-	
-	// window.Alpine = Alpine;
-	Alpine.plugin(scrollTo)
-	Alpine.start()
-  </script>
+  import Alpine from 'alpinejs'
+  import scrollTo from 'alpinejs-scroll-to'
+
+  // window.Alpine = Alpine;
+  Alpine.plugin(scrollTo)
+  Alpine.start()
+</script>

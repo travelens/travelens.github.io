@@ -7,9 +7,16 @@ import Layout from '../layouts/Layout.astro'
 import Hero from '../components/Hero.astro'
 import About from '../components/About.astro'
 import Places from '../components/Places.astro'
+import { SiteMetadata } from 'astro-travelens/config'
+import Cover from '../assets/about/Chris.jpeg'
 ---
-
-<Layout title="Travels Through A Lens.">
+<Layout
+  title="Travels Through A Lens"
+  description={SiteMetadata.description}
+  date={SiteMetadata.buildTime}
+  image={Cover}
+  tags={["travel", "blog"]}
+>
   <Header />
   <Hero />
   <About />

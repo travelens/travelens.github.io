@@ -7,6 +7,7 @@ import Header from 'astro-travelens/header'
 import Footer from 'astro-travelens/footer'
 import Document from '../../data/document'
 import Documents from '../../components/Documents.astro'
+import { SiteMetadata } from 'astro-travelens/config'
 
 import Cover from '../../assets/tags.jpeg'
 
@@ -32,7 +33,13 @@ export interface Props {
 }
 const { tag, documents } = Astro.props
 ---
-<Layout title={"Tag: " + tag}>
+<Layout
+  title={"Tag: " + tag}
+  description={"Tag: " + tag}
+  date={SiteMetadata.buildTime}
+  image={Cover}
+  tags={[tag, "travel", "blog"]}
+>
   <Header />
   <div class="-mt-24 relative w-full bg-black flex items-center justify-center overflow-hidden">
     <div class="relative h-96">

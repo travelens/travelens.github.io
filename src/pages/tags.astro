@@ -5,6 +5,7 @@ import Layout from '../layouts/Layout.astro'
 import Header from 'astro-travelens/header'
 // @ts-ignore 
 import Footer from 'astro-travelens/footer'
+import { SiteMetadata } from 'astro-travelens/config'
 import Document from '../data/document'
 import Cover from '../assets/tags.jpeg'
 
@@ -37,7 +38,13 @@ const textSize = [
 ]
 const maxcount = tagcount[Object.keys(tagcount).reduce((a, b) => tagcount[a] > tagcount[b] ? a : b)]
 ---
-<Layout title="Tags">
+<Layout
+  title="Tags"
+  description="Index of all tags"
+  date={SiteMetadata.buildTime}
+  image={Cover}
+  tags={["travel", "blog"]}
+>
   <Header />
   <div class="-mt-24 relative w-full h-full py-6 px-6 bg-black">
 		<!-- hero section -->

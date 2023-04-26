@@ -19,13 +19,13 @@
     "@types/alpinejs": "^3.0.0",
     "alpinejs": "^3.0.0",
     "alpinejs-scroll-to": "^1.1.0",
-    "astro": "^2.3.0",
+    "astro": "^2.3.1",
     "astro-seo": "^0.7.2",
     "astro-travelens": "^1.1.4",
     "lunr": "^2.3.9"
   },
   "devDependencies": {
     "prettier-plugin-astro": "^0.8.0",
-    "unocss": "^0.51.5"
+    "unocss": "^0.51.8"
   }
 }

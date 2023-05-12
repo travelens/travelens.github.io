@@ -15,17 +15,17 @@
     "@iconify-json/fa6-brands": "^1.1.11",
     "@iconify-json/fa6-solid": "^1.1.13",
     "@iconify-json/flag": "^1.1.31",
-    "@iconify-json/logos": "^1.1.25",
+    "@iconify-json/logos": "^1.1.28",
     "@types/alpinejs": "^3.0.0",
-    "alpinejs": "^3.0.0",
+    "alpinejs": "^3.12.1",
     "alpinejs-scroll-to": "^1.1.0",
-    "astro": "^2.4.2",
+    "astro": "^2.4.5",
     "astro-seo": "^0.7.2",
     "astro-travelens": "^1.1.5",
     "lunr": "^2.3.9"
   },
   "devDependencies": {
-    "prettier-plugin-astro": "^0.8.0",
+    "prettier-plugin-astro": "^0.8.1",
     "unocss": "^0.51.12"
   }
 }

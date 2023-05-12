@@ -5,7 +5,7 @@ const docs = Object.keys(documents).map(doc => documents[doc]).flat(3).sort((a,b
 
 export async function get() {
   return { body: `<?xml version="1.0"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>${SiteMetadata.title}</title>
     <link>${import.meta.env.SITE}</link>
@@ -22,6 +22,8 @@ ${docs.map((doc) => `    <item>
       <link>${import.meta.env.SITE + doc.base + doc.slug}</link>
       <author>${SiteMetadata.author.email} (${SiteMetadata.author.name})</author>
       <description>${doc.description}</description>
+      <enclosure url="${doc.image.src}" length="12345" type="image/jpeg"/>
+      <media:content url="${doc.image.src}" type="image/jpeg" medium="image" height="${doc.image.height}" width="${doc.image.width}"/>
       <pubDate>${doc.date}</pubDate>
       <guid>${import.meta.env.SITE + doc.base + doc.slug}</guid>
       <category domain="trip">${doc.trip}</category>

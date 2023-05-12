@@ -1,4 +1,5 @@
 # Travels Through A Lens
+![deploy](https://github.com/travelens/travelens.github.io/actions/workflows/deploy.yml/badge.svg)
 
 My travelogue web site. This documents all the trips we have taken over the
 years, to various countries.
@@ -15,7 +16,7 @@ This web site is written in HTML5, CSS, [UnoCSS](https://uno.antfu.me/)
 
 It open source (MIT licence) and deployed using Github Pages.
 
-The site design is based on [Digizu's TailwindCSS templates](https://templates.digizu.co.uk/), particularly Essential and Impulse. The scrolling background on the home page is inspired by Eventually from [HTML5UP](https://html5up.net) by @ajkln.
+The site design is based on [Digizu's TailwindCSS templates](https://templatesizu.co.uk/), particularly Essential and Impulse. The scrolling background on the home page is inspired by Eventually from [HTML5UP](https://html5up.net) by @ajkln.
 
 ## 🚀 Project Structure
 

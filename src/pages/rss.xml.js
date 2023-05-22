@@ -5,7 +5,7 @@ const docs = Object.keys(documents).map(doc => documents[doc]).flat(3).sort((a,b
 
 export async function get() {
   return { body: `<?xml version="1.0"?>
-<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+<rss xmlns:media="http://search.yahoo.com/mrss/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
   <channel>
     <title>${SiteMetadata.title}</title>
     <link>${import.meta.env.SITE}</link>
@@ -18,10 +18,10 @@ export async function get() {
     <managingEditor>${SiteMetadata.author.email} (${SiteMetadata.author.name})</managingEditor>
     <webMaster>${SiteMetadata.author.email} (${SiteMetadata.author.name})</webMaster>
 ${docs.map((doc) => `    <item>
-      <title>${doc.title}</title>
+      <title><![CDATA[${doc.title}]]></title>
       <link>${import.meta.env.SITE + doc.base + doc.slug}</link>
       <author>${SiteMetadata.author.email} (${SiteMetadata.author.name})</author>
-      <description>${doc.description}</description>
+      <description><![CDATA[${doc.description}]]></description>
       <enclosure url="${import.meta.env.SITE + doc.image.src}" length="12345" type="image/jpeg"/>
       <media:content url="${import.meta.env.SITE + doc.image.src}" type="image/jpeg" medium="image" height="${doc.image.height}" width="${doc.image.width}"/>
       <pubDate>${doc.date}</pubDate>

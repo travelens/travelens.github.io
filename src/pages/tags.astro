@@ -6,7 +6,7 @@ import Header from 'astro-travelens/header'
 // @ts-ignore 
 import Footer from 'astro-travelens/footer'
 import { SiteMetadata } from 'astro-travelens/config'
-import Document from '../data/document'
+import type Document from '../data/document'
 import Cover from '../assets/tags.jpeg'
 
 const documents = import.meta.glob<Document[]>('../data/*.json', { import: 'default', eager: true })

@@ -1,5 +1,5 @@
 ---
-// @ts-ignore 
+// @ts-ignore
 import Tags from 'astro-travelens/tags'
 
 interface Document {
@@ -26,46 +26,51 @@ export interface Props {
 
 const { documents } = Astro.props
 ---
-{documents.map((doc, i) => (
-  <div class="container mx-auto px-6 py-4 grid grid-cols-1 lg:grid-cols-2 mb-4 bg-rose-50 shadow-lg shadow-neutral-400 rounded-lg">
-    <div class="relative h-52 md:h-72 lg:h-auto">
-      <a href={doc.base + doc.slug}>
-        <img
-          src={doc.image.src}
-          width={1024}
-          class="absolute inset-0 w-full h-full object-cover p-4 bg-white hover:bg-pink-200"
-          alt={doc.title}
-        />
-      </a>
-    </div>
-      <div class="px-6 py-12 md:p-16 lg:p-32 flex items-center justify-center order-last" class:list={[ i % 2 == 0 && 'lg:order-first' ]}>
+
+{
+  documents.map((doc, i) => (
+    <div class='container mx-auto px-6 py-4 grid grid-cols-1 lg:grid-cols-2 mb-4 bg-rose-50 shadow-lg shadow-neutral-400 rounded-lg'>
+      <div class='relative h-52 md:h-72 lg:h-auto'>
+        <a href={doc.base + doc.slug}>
+          <img
+            src={doc.image.src}
+            width={1024}
+            class='absolute inset-0 w-full h-full object-cover p-4 bg-white hover:bg-pink-200'
+            alt={doc.title}
+          />
+        </a>
+      </div>
+      <div
+        class='px-6 py-12 md:p-16 lg:p-32 flex items-center justify-center order-last'
+        class:list={[i % 2 == 0 && 'lg:order-first']}
+      >
         <div>
           <a href={doc.base + doc.slug}>
-            <h3 class="text-4xl mb-2 font-display text-black hover:text-pink leading-tight">{doc.title}</h3>
+            <h3 class='text-4xl mb-2 font-display text-black hover:text-pink leading-tight'>
+              {doc.title}
+            </h3>
           </a>
-          <div class="my-2 text-neutral-600">
+          <div class='my-2 text-neutral-600'>
             <div>
-              <span class="w-4 h-4 i-fa6-solid-passport"></span>
-              <span class="ml-1 mr-4">{doc.trip}</span>
+              <span class='w-4 h-4 i-fa6-solid-passport' />
+              <span class='ml-1 mr-4'>{doc.trip}</span>
             </div>
             <div>
-              <span class="w-4 h-4 i-fa6-solid-globe"></span>
-              <span class="ml-1 mr-4">{doc.place}</span>
+              <span class='w-4 h-4 i-fa6-solid-globe' />
+              <span class='ml-1 mr-4'>{doc.place}</span>
             </div>
             <div>
-              <span class="w-4 h-4 i-fa6-solid-location-arrow"></span>
-              <span class="ml-1 mr-4">{doc.location}</span>
+              <span class='w-4 h-4 i-fa6-solid-location-arrow' />
+              <span class='ml-1 mr-4'>{doc.location}</span>
             </div>
             <div>
-              <span class="w-4 h-4 i-fa6-solid-calendar-days"></span>
-              <span class="ml-1">
-                {
-                  new Date(doc.date).toLocaleString('en-AU', {
-                    dateStyle: 'long',
-                    timeStyle: 'short',
-                    timeZone: doc.timezone,
-                  })
-                }
+              <span class='w-4 h-4 i-fa6-solid-calendar-days' />
+              <span class='ml-1'>
+                {new Date(doc.date).toLocaleString('en-AU', {
+                  dateStyle: 'long',
+                  timeStyle: 'short',
+                  timeZone: doc.timezone
+                })}
               </span>
             </div>
             <Tags tags={doc.tags} />
@@ -73,11 +78,12 @@ const { documents } = Astro.props
           <p>{doc.description}</p>
           <a
             href={doc.base + doc.slug}
-            class="inline-block bg-pink-400 text-white hover:bg-pink-500 text-sm tracking-widest font-heading px-8 py-4 mt-4"
+            class='inline-block bg-pink-400 text-white hover:bg-pink-500 text-sm tracking-widest font-heading px-8 py-4 mt-4'
           >
             Read
           </a>
         </div>
       </div>
-  </div>
-))}
+    </div>
+  ))
+}

@@ -2,7 +2,10 @@ import rss from '@astrojs/rss'
 import { SiteMetadata } from 'astro-travelens/config'
 
 const documents = import.meta.glob('../data/*.json', { import: 'default', eager: true })
-const docs = Object.keys(documents).map(doc => documents[doc]).flat(3).sort((a,b) => new Date(b.date) - new Date(a.date))
+const docs = Object.keys(documents)
+  .map((doc) => documents[doc])
+  .flat(3)
+  .sort((a, b) => new Date(b.date) - new Date(a.date))
 
 export async function GET(context) {
   return rss({

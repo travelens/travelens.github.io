@@ -1,5 +1,5 @@
 ---
-// @ts-ignore 
+// @ts-ignore
 import Metadata from 'astro-travelens/metadata'
 
 export interface Props {
@@ -13,28 +13,22 @@ export interface Props {
 const { title, description, date, tags, image } = Astro.props
 ---
 
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang='en'>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/manifest.webmanifest" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />
-    <meta name="generator" content={Astro.generator} />
-    <Metadata
-      title={title}
-      description={description}
-      date={date}
-      image={image}
-      tags={tags}
-    />
+    <meta charset='UTF-8' />
+    <meta http-equiv='x-ua-compatible' content='ie=edge' />
+    <meta name='viewport' content='width=device-width,initial-scale=1' />
+    <link rel='icon' href='/favicon.ico' sizes='any' />
+    <link rel='icon' href='/favicon.svg' type='image/svg+xml' />
+    <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
+    <link rel='manifest' href='/manifest.webmanifest' />
+    <link rel='sitemap' href='/sitemap-index.xml' />
+    <link rel='alternate' type='application/rss+xml' title='RSS' href='/rss.xml' />
+    <meta name='generator' content={Astro.generator} />
+    <Metadata title={title} description={description} date={date} image={image} tags={tags} />
   </head>
-  <body class="font-sans antialiased bg-neutral-100 text-gray-700">
+  <body class='font-sans antialiased bg-neutral-100 text-gray-700'>
     <slot />
   </body>
 </html>

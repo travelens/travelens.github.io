@@ -1,9 +1,9 @@
 ---
 import { Image } from 'astro:assets'
 import Layout from '../../layouts/Layout.astro'
-// @ts-ignore 
+// @ts-ignore
 import Header from 'astro-travelens/header'
-// @ts-ignore 
+// @ts-ignore
 import Footer from 'astro-travelens/footer'
 import type Document from '../../data/document'
 import Documents from '../../components/Documents.astro'
@@ -11,19 +11,27 @@ import { SiteMetadata } from 'astro-travelens/config'
 
 import Cover from '../../assets/tags.jpeg'
 
-
 export async function getStaticPaths() {
-  const documents = import.meta.glob<Document[]>('../../data/*.json', { import: 'default', eager: true })
-  const allTags = Object.keys(documents).map(doc => documents[doc].map(entry => entry.tags)).flat(3)
+  const documents = import.meta.glob<Document[]>('../../data/*.json', {
+    import: 'default',
+    eager: true
+  })
+  const allTags = Object.keys(documents)
+    .map((doc) => documents[doc].map((entry) => entry.tags))
+    .flat(3)
   const uniqueTags = Array.from(new Set(allTags))
-  const tags = uniqueTags.map(tag => {
+  const tags = uniqueTags.map((tag) => {
     return {
       tag: tag,
-      documents: Object.keys(documents).map(doc => documents[doc]).flat(3).filter(doc => doc.tags.includes(tag))
+      documents: Object.keys(documents)
+        .map((doc) => documents[doc])
+        .flat(3)
+        .filter((doc) => doc.tags.includes(tag))
     }
   })
-  return tags.map(tag => ({
-    params: { tag: tag.tag }, props: { tag: tag.tag, documents: tag.documents },
+  return tags.map((tag) => ({
+    params: { tag: tag.tag },
+    props: { tag: tag.tag, documents: tag.documents }
   }))
 }
 
@@ -33,22 +41,23 @@ export interface Props {
 }
 const { tag, documents } = Astro.props
 ---
+
 <Layout
-  title={"Tag: " + tag}
-  description={"Tag: " + tag}
+  title={'Tag: ' + tag}
+  description={'Tag: ' + tag}
   date={SiteMetadata.buildTime}
   image={Cover}
-  tags={[tag, "travel", "blog"]}
+  tags={[tag, 'travel', 'blog']}
 >
   <Header />
-  <div class="-mt-24 relative w-full bg-black flex items-center justify-center overflow-hidden">
-    <div class="relative h-96">
-        <Image src={Cover} class="w-full object-cover object-center opacity-50" alt="Background"/>
+  <div class='-mt-24 relative w-full bg-black flex items-center justify-center overflow-hidden'>
+    <div class='relative h-96'>
+      <Image src={Cover} class='w-full object-cover object-center opacity-50' alt='Background' />
     </div>
   </div>
-  <div class="max-w-4xl mx-auto bg-white pt-12 px-12 lg:px-24 -mt-32 relative z-10 pb-12 mb-4">
-      <h2 class="mt-4 uppercase tracking-widest text-xs text-gray-600">travelens</h2>
-      <h1 class="font-display text-2xl md:text-3xl text-gray-900 mt-4">Tag: {tag}</h1>
+  <div class='max-w-4xl mx-auto bg-white pt-12 px-12 lg:px-24 -mt-32 relative z-10 pb-12 mb-4'>
+    <h2 class='mt-4 uppercase tracking-widest text-xs text-gray-600'>travelens</h2>
+    <h1 class='font-display text-2xl md:text-3xl text-gray-900 mt-4'>Tag: {tag}</h1>
   </div>
   <Documents documents={documents} />
   <Footer />

@@ -5,46 +5,57 @@ import Chris from '../assets/about/Chris.jpeg'
 import Ghan from '../assets/about/The Ghan.jpeg'
 import Rome from '../assets/countries/Rome 2.jpeg'
 ---
-<div id="about" class="py-12 px-12">
-		
-  <div class="container mx-auto flex flex-wrap">
-    <div class="w-full md:w-1/2 md:pr-4 flex flex-wrap mb-12 md:mb-0">
-      <div class="p-2 w-1/2">
-        <Image src={Chris} class="shadow-lg shadow-neutral-400 bg-white p-4 w-full h-64 object-cover" alt="Chris"/>
+
+<div id='about' class='px-12 py-12'>
+  <div class='mx-auto flex flex-wrap container'>
+    <div class='mb-12 w-full flex flex-wrap md:mb-0 md:w-1/2 md:pr-4'>
+      <div class='w-1/2 p-2'>
+        <Image
+          src={Chris}
+          class='h-64 w-full bg-white object-cover p-4 shadow-lg shadow-neutral-400'
+          alt='Chris'
+        />
       </div>
-      <div class="p-2 w-1/2">
-        <Image src={Rome} class="shadow-lg shadow-neutral-400 bg-white p-4 w-full h-64 object-cover" alt="Rome"/>
+      <div class='w-1/2 p-2'>
+        <Image
+          src={Rome}
+          class='h-64 w-full bg-white object-cover p-4 shadow-lg shadow-neutral-400'
+          alt='Rome'
+        />
       </div>
-      <div class="p-2 w-full">
-        <Image src={Ghan} class="shadow-lg shadow-neutral-400 bg-white p-4 w-full h-64 object-cover" alt="The Ghan"/>
+      <div class='w-full p-2'>
+        <Image
+          src={Ghan}
+          class='h-64 w-full bg-white object-cover p-4 shadow-lg shadow-neutral-400'
+          alt='The Ghan'
+        />
       </div>
     </div>
-    <div class="w-full md:w-1/2 md:pl-4">
-      <div class="uppercase text-sm text-pink-600 tracking-widest">
-        travelens
-      </div>
-      <h2 class="font-display font-bold text-5xl mb-10">Travels Through A Lens</h2>
-      <div class="max-w-lg">
-        <p class="mb-6 text-gray-700">Hi there! My name is Chris Tham. I live in Sydney, but love travelling.</p>
-        <p class="mb-6 text-gray-700">This web site is a
-          celebration of the wonderful trips we have taken across many countries, and
-          I hope you enjoy them as much as we did taking them.</p>
-        <p class="mb-2 text-gray-700">My personal site:</p>
+    <div class='w-full md:w-1/2 md:pl-4'>
+      <div class='text-sm text-pink-600 tracking-widest uppercase'>travelens</div>
+      <h2 class='font-display mb-10 text-5xl font-bold'>Travels Through A Lens</h2>
+      <div class='max-w-lg'>
+        <p class='mb-6 text-gray-700'>
+          Hi there! My name is Chris Tham. I live in Sydney, but love travelling.
+        </p>
+        <p class='mb-6 text-gray-700'>
+          This web site is a celebration of the wonderful trips we have taken across many countries,
+          and I hope you enjoy them as much as we did taking them.
+        </p>
+        <p class='mb-2 text-gray-700'>My personal site:</p>
         <a
-        href="https://christham.net"
-        class="inline-block bg-pink-400 hover:bg-pink-500 text-white text-sm tracking-widest font-heading px-8 py-4"
-        >ChrisTham.net</a
+          href='https://christham.net'
+          class='font-heading inline-block bg-pink-400 px-8 py-4 text-sm text-white tracking-widest hover:bg-pink-500'
+          >ChrisTham.net</a
         >
-        <p class="mt-6 mb-2 text-gray-700">My professional world travel and photography site:</p>
+        <p class='mb-2 mt-6 text-gray-700'>My professional world travel and photography site:</p>
         <a
-          href="https://visualvoyager.net"
-          class="inline-block bg-pink-200 hover:bg-pink-300 text-gray-700 text-sm tracking-widest font-heading px-8 py-4"
+          href='https://visualvoyager.net'
+          class='font-heading inline-block bg-pink-200 px-8 py-4 text-sm text-gray-700 tracking-widest hover:bg-pink-300'
         >
           VisualVoyager.net
         </a>
-
       </div>
     </div>
   </div>
-
 </div>

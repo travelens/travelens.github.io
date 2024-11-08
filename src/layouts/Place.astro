@@ -14,34 +14,27 @@ interface Props {
 
 const { place } = Astro.props
 ---
+
 <Layout
   title={place.data.title}
   description={place.data.description}
   date={SiteMetadata.buildTime}
   image={place.data.image}
-  tags={[place.data.title, "travel", "blog"]}
+  tags={[place.data.title, 'travel', 'blog']}
 >
   <Header />
-  <div class="-mt-24 relative w-full bg-black flex items-center justify-center overflow-hidden" >
-    <div class="relative h-96">
-      <Image
-        src={place.data.image}
-        class="w-full object-cover opacity-50"
-        alt={place.data.title}
-      />
+  <div class='-mt-24 relative w-full bg-black flex items-center justify-center overflow-hidden'>
+    <div class='relative h-96'>
+      <Image src={place.data.image} class='w-full object-cover opacity-50' alt={place.data.title} />
     </div>
   </div>
-  <div
-    class="max-w-4xl mx-auto bg-white pt-12 px-12 lg:px-24 -mt-32 relative z-10"
-  >
-    <h2 class="mt-4 uppercase tracking-widest text-xs text-gray-600">
-      travelens
-    </h2>
-    <h1 class="font-display text-2xl md:text-3xl text-gray-900 mt-4">
+  <div class='max-w-4xl mx-auto bg-white pt-12 px-12 lg:px-24 -mt-32 relative z-10'>
+    <h2 class='mt-4 uppercase tracking-widest text-xs text-gray-600'>travelens</h2>
+    <h1 class='font-display text-2xl md:text-3xl text-gray-900 mt-4'>
       {place.data.title}
     </h1>
 
-    <div class="prose italic prose-sm sm:prose lg:prose-lg mt-6">
+    <div class='prose italic prose-sm sm:prose lg:prose-lg mt-6'>
       {place.data.description}
     </div>
   </div>

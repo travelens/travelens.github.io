@@ -8,11 +8,7 @@ import Rome from '../assets/countries/Rome.jpeg'
 const bgFadein = '3s'
 const bgTransition = '3s'
 const bgSlide = '36s'
-const bgImages = [
-  NewYork,
-  Paris,
-  Rome,
-]
+const bgImages = [NewYork, Paris, Rome]
 ---
 
 <script is:inline>
@@ -21,52 +17,49 @@ const bgImages = [
     images: 3,
     init() {
       window.setInterval(() => {
-        this.current =
-          this.current < this.images - 1 ? this.current + 1 : 0
+        this.current = this.current < this.images - 1 ? this.current + 1 : 0
       }, 6000)
-    },
+    }
   })
 </script>
 <div
-  x-data="slideshow()"
-  x-init="init()"
-  class="-mt-24 relative w-full h-screen bg-black flex items-center justify-center overflow-hidden"
+  x-data='slideshow()'
+  x-init='init()'
+  class='relative h-screen w-full flex items-center justify-center overflow-hidden bg-black -mt-24'
 >
-  <div class="absolute z-10 text-center text-white text-center px-6">
-    <div class="text-xs uppercase tracking-widest">travelens</div>
-    <h1 class="text-3xl md:text-5xl font-display font-semibold mt-2">
-      Travels Through A Lens
-    </h1>
-    <p class="mt-4">
-      <a href="https://christham.net">Chris Tham</a>'s travelogue web site. This site
-      documents all the trips we have taken over the years, to various
-      countries.
+  <div class='absolute z-10 px-6 text-center text-center text-white'>
+    <div class='text-xs tracking-widest uppercase'>travelens</div>
+    <h1 class='font-display mt-2 text-3xl font-semibold md:text-5xl'>Travels Through A Lens</h1>
+    <p class='mt-4'>
+      <a href='https://christham.net'>Chris Tham</a>'s travelogue web site. This site documents all
+      the trips we have taken over the years, to various countries.
     </p>
-    <p class="mt-4 italic">
-      This site is currently under construction, as we load trips from the most recent all the way back to our first trip in the 1980s.
+    <p class='mt-4 italic'>
+      This site is currently under construction, as we load trips from the most recent all the way
+      back to our first trip in the 1980s.
     </p>
-    <div class="max-w-sm mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+    <div class='grid grid-cols-1 mx-auto mt-6 max-w-sm gap-4 md:grid-cols-2'>
       <a
-        href="#places"
-        class="inline-block bg-pink-400 hover:bg-pink-500 text-white text-sm tracking-widest font-heading px-8 py-4"
-        x-on:click.prevent="$scrollTo"
+        href='#places'
+        class='font-heading inline-block bg-pink-400 px-8 py-4 text-sm text-white tracking-widest hover:bg-pink-500'
+        x-on:click.prevent='$scrollTo'
       >
         Explore
       </a>
       <a
-        href="#about"
-        class="inline-block bg-pink-200 hover:bg-pink-300 text-gray-700 text-sm tracking-widest font-heading px-8 py-4"
-        x-on:click.prevent="$scrollTo"
+        href='#about'
+        class='font-heading inline-block bg-pink-200 px-8 py-4 text-sm text-gray-700 tracking-widest hover:bg-pink-300'
+        x-on:click.prevent='$scrollTo'
       >
         About
       </a>
     </div>
   </div>
-  <div class="bgimg">
+  <div class='bgimg'>
     {
       bgImages.map((image, i) => (
         <div x-bind:class={'current == ' + i + " ? 'bgactive' : ''"}>
-          <Image src={image} class="w-full h-full object-cover" alt={"Background " + i}/>
+          <Image src={image} class='h-full w-full object-cover' alt={'Background ' + i} />
         </div>
       ))
     }

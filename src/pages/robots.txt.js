@@ -1,8 +1,14 @@
-export async function get() {
-  return {
-    body: `User-agent: *
+export async function GET() {
+  return new Response(
+    `User-agent: *
 Allow: /
 Sitemap: ${import.meta.env.SITE}${import.meta.env.BASE_URL}sitemap-index.xml
-`
-  }
+`,
+    {
+      status: 200,
+      headers: {
+        'Content-Type': 'text/plain'
+      }
+    }
+  )
 }

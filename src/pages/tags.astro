@@ -1,10 +1,8 @@
 ---
 import { Image } from 'astro:assets'
 import Layout from '../layouts/Layout.astro'
-// @ts-ignore
-import Header from 'astro-travelens/header'
-// @ts-ignore
-import Footer from 'astro-travelens/footer'
+import Header from 'astro-travelens/Header.astro'
+import Footer from 'astro-travelens/Footer.astro'
 import { SiteMetadata } from 'astro-travelens/config'
 import type Document from '../data/document'
 import Cover from '../assets/tags.jpeg'
@@ -43,11 +41,11 @@ const maxcount =
   tags={['travel', 'blog']}
 >
   <Header />
-  <div class='-mt-24 relative w-full h-full py-6 px-6 bg-black'>
+  <div class='relative h-full w-full bg-black px-6 py-6 -mt-24'>
     <!-- hero section -->
     <div class='relative z-10 text-center'>
-      <h1 class='text-white text-center text-6xl font-display font-bold mt-12 mb-6'>Tags</h1>
-      <ul class='flex justify-center flex-wrap align-center leading-10'>
+      <h1 class='font-display mb-6 mt-12 text-center text-6xl text-white font-bold'>Tags</h1>
+      <ul class='align-center flex flex-wrap justify-center leading-10'>
         {
           Object.keys(tagcount).map((tag) => (
             <li>
@@ -72,7 +70,7 @@ const maxcount =
     </div>
 
     <!-- banner image -->
-    <Image src={Cover} class='h-full absolute inset-0 object-cover opacity-70' alt='Cover' />
+    <Image src={Cover} class='absolute inset-0 h-full object-cover opacity-70' alt='Cover' />
   </div>
   <Footer />
 </Layout>

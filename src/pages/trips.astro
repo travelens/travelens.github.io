@@ -2,10 +2,8 @@
 import type Document from '../data/document'
 import { Image } from 'astro:assets'
 import Layout from '../layouts/Layout.astro'
-// @ts-ignore
-import Header from 'astro-travelens/header'
-// @ts-ignore
-import Footer from 'astro-travelens/footer'
+import Header from 'astro-travelens/Header.astro'
+import Footer from 'astro-travelens/Footer.astro'
 import { SiteMetadata } from 'astro-travelens/config'
 import Cover from '../assets/countries/Penang.jpeg'
 const documents = import.meta.glob<Document>('../data/*.json', { import: 'default', eager: true })
@@ -24,30 +22,30 @@ const trips = Object.keys(documents)
   tags={['travel', 'blog']}
 >
   <Header />
-  <div class='-mt-24 relative w-full py-12 px-12 bg-black'>
+  <div class='relative w-full bg-black px-12 py-12 -mt-24'>
     <!-- hero section -->
-    <div class='relative z-10 text-center py-48'>
-      <h1 class='text-white text-center text-6xl font-display font-bold mb-12'>Trips</h1>
+    <div class='relative z-10 py-48 text-center'>
+      <h1 class='font-display mb-12 text-center text-6xl text-white font-bold'>Trips</h1>
     </div>
 
     <!-- banner image -->
     <Image
       src={Cover}
-      class='w-full absolute inset-0 object-center object-cover opacity-70'
+      class='absolute inset-0 w-full object-cover object-center opacity-70'
       alt='Cover'
     />
   </div>
-  <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-neutral-700'>
+  <div class='grid grid-cols-1 bg-neutral-700 lg:grid-cols-3 md:grid-cols-2 xl:grid-cols-4'>
     {
       trips.map((trip) => (
         <a
           href={trip.base + trip.slug}
-          class='bg-black relative block flex items-center justify-center h-72 font-heading text-white uppercase tracking-widest hover:opacity-75'
+          class='font-heading relative block h-72 flex items-center justify-center bg-black text-white tracking-widest uppercase hover:opacity-75'
         >
           <div class='relative z-10'>{trip.title}</div>
           <img
             src={trip.image.src}
-            class='absolute inset-0 w-full h-full object-cover opacity-50'
+            class='absolute inset-0 h-full w-full object-cover opacity-50'
             alt={trip.title}
           />
         </a>

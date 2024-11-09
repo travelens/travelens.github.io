@@ -13,7 +13,7 @@
     "check": "astro check",
     "lint": "pnpm run lint:prettier ; pnpm run lint:eslint",
     "lint:prettier": "prettier --write  \"src/**/*.{js,jsx,ts,tsx,md,mdx,astro}\"",
-    "lint:eslint": "eslint --fix \"src/**/*.{js,ts,jsx,tsx}\"",
+    "lint:eslint": "eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\"",
     "astro": "astro"
   },
   "dependencies": {
@@ -27,11 +27,13 @@
     "alpinejs-scroll-to": "^1.1.1",
     "astro": "^4.16.10",
     "astro-seo": "^0.8.4",
-    "astro-travelens": "^1.1.9",
+    "astro-travelens": "^2.0.1",
     "lunr": "^2.3.9"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
+    "@eslint/markdown": "^6.2.1",
+    "@typescript-eslint/parser": "^8.13.0",
     "@unocss/eslint-config": "^0.64.0",
     "@unocss/reset": "^0.64.0",
     "eslint": "^9.14.0",
@@ -43,6 +45,7 @@
     "prettier-config-standard": "^7.0.0",
     "prettier-plugin-astro": "^0.14.1",
     "sharp": "^0.33.5",
+    "typescript": "^5.6.3",
     "unocss": "^0.64.0"
   },
   "packageManager": "pnpm@9.12.3+sha512.cce0f9de9c5a7c95bef944169cc5dfe8741abfb145078c0d508b868056848a87c81e626246cb60967cbd7fd29a6c062ef73ff840d96b3c86c40ac92cf4a813ee"

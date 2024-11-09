@@ -1,10 +1,8 @@
 ---
 import { Image } from 'astro:assets'
 import Layout from '../../layouts/Layout.astro'
-// @ts-ignore
-import Header from 'astro-travelens/header'
-// @ts-ignore
-import Footer from 'astro-travelens/footer'
+import Header from 'astro-travelens/Header.astro'
+import Footer from 'astro-travelens/Footer.astro'
 import type Document from '../../data/document'
 import Documents from '../../components/Documents.astro'
 import { SiteMetadata } from 'astro-travelens/config'
@@ -50,14 +48,14 @@ const { tag, documents } = Astro.props
   tags={[tag, 'travel', 'blog']}
 >
   <Header />
-  <div class='-mt-24 relative w-full bg-black flex items-center justify-center overflow-hidden'>
+  <div class='relative w-full flex items-center justify-center overflow-hidden bg-black -mt-24'>
     <div class='relative h-96'>
       <Image src={Cover} class='w-full object-cover object-center opacity-50' alt='Background' />
     </div>
   </div>
-  <div class='max-w-4xl mx-auto bg-white pt-12 px-12 lg:px-24 -mt-32 relative z-10 pb-12 mb-4'>
-    <h2 class='mt-4 uppercase tracking-widest text-xs text-gray-600'>travelens</h2>
-    <h1 class='font-display text-2xl md:text-3xl text-gray-900 mt-4'>Tag: {tag}</h1>
+  <div class='relative z-10 mx-auto mb-4 max-w-4xl bg-white px-12 pb-12 pt-12 -mt-32 lg:px-24'>
+    <h2 class='mt-4 text-xs text-gray-600 tracking-widest uppercase'>travelens</h2>
+    <h1 class='font-display mt-4 text-2xl text-gray-900 md:text-3xl'>Tag: {tag}</h1>
   </div>
   <Documents documents={documents} />
   <Footer />

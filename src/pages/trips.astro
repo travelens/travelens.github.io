@@ -40,12 +40,12 @@ const trips = Object.keys(documents)
       trips.map((trip) => (
         <a
           href={trip.base + trip.slug}
-          class='font-heading relative block h-72 flex items-center justify-center bg-black text-white tracking-widest uppercase hover:opacity-75'
+          class='font-heading relative block h-72 flex items-center justify-center bg-black text-white tracking-widest uppercase'
         >
           <div class='relative z-10'>{trip.title}</div>
           <img
             src={trip.image.src}
-            class='absolute inset-0 h-full w-full object-cover opacity-50'
+            class='absolute inset-0 h-full w-full object-cover opacity-50 hover:opacity-75'
             alt={trip.title}
           />
         </a>

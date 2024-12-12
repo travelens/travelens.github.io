@@ -7,7 +7,7 @@ import type Document from '../../data/document'
 import Documents from '../../components/Documents.astro'
 import { SiteMetadata } from 'astro-travelens/config'
 
-import Cover from '../../assets/tags.jpeg'
+import Cover from '../../images/tags.jpeg'
 
 export async function getStaticPaths() {
   const documents = import.meta.glob<Document[]>('../../data/*.json', {

@@ -1,7 +1,7 @@
 ---
 title: Australia
 description: Australia is where we live. We have visited many places here.
-image: ../../assets/countries/Canberra.jpeg
+image: ../countries/Canberra.jpeg
 width: 2
 ---
 

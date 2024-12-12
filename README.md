@@ -27,20 +27,21 @@ Inside this project, you'll see the following folders and files:
 ├── public/
 │   └── favicon.svg
 ├── src/
-│   ├── assets/
-│   │   └── image.jpg
 │   ├── components/
 │   │   └── Header.astro
-│   ├── content/
-|   │   ├── place/
-|   │   │   └── place.md
-|   │   ├── trip/
-|   │   │   └── trip.md
-│   │   └── config.ts
+|   ├── data/
+|   |   └── trip.json
+|   ├── countries/
+|   |   └── country.md
+│   ├── images/
+│   │   └── image.jpg
 │   ├── layouts/
 │   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
+│   ├── pages/
+│   |   └── index.astro
+|   ├── place/
+|   |   └── place.md
+│   └── content.config.ts
 └── package.json
 ```
 
@@ -50,14 +51,14 @@ repositories into a single seamless website.
 
 ## 🧞 Commands
 
-`yarn` is used as a package manager
+`pnpm` is used as a package manager
 All commands are run from the root of the project, from a terminal:
 
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `yarn`          | Installs dependencies                            |
-| `yarn dev`          | Starts local dev server at `localhost:3000`      |
-| `yarn build`        | Build your production site to `./dist/`          |
-| `yarn preview`      | Preview your build locally, before deploying     |
-| `yarn astro ...`    | Run CLI commands like `astro add`, `astro check` |
-| `yarn astro --help` | Get help using the Astro CLI                     |
+| Command             | Action                                           |
+| :------------------ | :----------------------------------------------- |
+| `pnpm install`      | Installs dependencies                            |
+| `pnpm dev`          | Starts local dev server at `localhost:3000`      |
+| `pnpm build`        | Build your production site to `./dist/`          |
+| `pnpm preview`      | Preview your build locally, before deploying     |
+| `pnpm astro ...`    | Run CLI commands like `astro add`, `astro check` |
+| `pnpm astro --help` | Get help using the Astro CLI                     |

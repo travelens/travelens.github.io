@@ -5,7 +5,7 @@ import Layout from '../layouts/Layout.astro'
 import Header from 'astro-travelens/Header.astro'
 import Footer from 'astro-travelens/Footer.astro'
 import { SiteMetadata } from 'astro-travelens/config'
-import Cover from '../assets/countries/Penang.jpeg'
+import Cover from '../countries/Penang.jpeg'
 const documents = import.meta.glob<Document>('../data/*.json', { import: 'default', eager: true })
 const trips = Object.keys(documents)
   .map((doc) => documents[doc])

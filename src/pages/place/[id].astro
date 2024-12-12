@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content'
-import { getCollection } from 'astro:content'
+import { getCollection, render } from 'astro:content'
 import Place from '../../layouts/Place.astro'
 import type Document from '../../data/document'
 import Documents from '../../components/Documents.astro'
@@ -9,7 +9,7 @@ import Documents from '../../components/Documents.astro'
 export async function getStaticPaths() {
   const places = await getCollection('place')
   return places.map((place) => ({
-    params: { slug: place.slug },
+    params: { id: place.id },
     props: { place }
   }))
 }
@@ -28,7 +28,7 @@ const trips = Object.keys(documents)
   .flat(3)
   .filter((doc) => doc.place === place.data.title && doc.collection === 'trip')
   .sort((a, b) => +new Date(b.date) - +new Date(a.date))
-const { Content } = await place.render()
+const { Content } = await render(place)
 ---
 
 <Place place={place}>

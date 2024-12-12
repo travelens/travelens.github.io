@@ -12,7 +12,7 @@ const places = await getCollection('place')
   {
     places.map((place) => (
       <a
-        href={'/place/' + place.slug}
+        href={'/place/' + place.id}
         class:list={[
           'relative block bg-black text-white',
           'md:col-span-' + place.data.width,

@@ -1,9 +1,10 @@
 // 1. Import your utilities and schemas
 import { z, defineCollection } from 'astro:content'
-
+import { glob } from 'astro/loaders'
 // 2. Define your collections
 
-const placeCollection = defineCollection({
+const place = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/place' }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -14,6 +15,4 @@ const placeCollection = defineCollection({
 })
 
 // 3. Export multiple collections to register them
-export const collections = {
-  place: placeCollection
-}
+export const collections = { place }

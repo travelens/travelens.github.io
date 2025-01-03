@@ -17,7 +17,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/rss": "^4.0.10",
+    "@astrojs/rss": "^4.0.11",
     "@iconify-json/fa6-brands": "^1.2.5",
     "@iconify-json/fa6-solid": "^1.2.3",
     "@iconify-json/flag": "^1.2.3",
@@ -25,7 +25,7 @@
     "@types/alpinejs": "^3.13.11",
     "alpinejs": "^3.14.8",
     "alpinejs-scroll-to": "^1.1.1",
-    "astro": "^5.1.1",
+    "astro": "^5.1.2",
     "astro-seo": "^0.8.4",
     "astro-travelens": "^2.0.1",
     "lunr": "^2.3.9"

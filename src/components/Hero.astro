@@ -11,8 +11,8 @@ const bgSlide = '36s'
 const bgImages = [NewYork, Paris, Rome]
 ---
 
-<script is:inline>
-  const slideshow = () => ({
+<div
+  x-data='{
     current: 0,
     images: 3,
     init() {
@@ -20,10 +20,7 @@ const bgImages = [NewYork, Paris, Rome]
         this.current = this.current < this.images - 1 ? this.current + 1 : 0
       }, 6000)
     }
-  })
-</script>
-<div
-  x-data='slideshow()'
+  }'
   x-init='init()'
   class='relative h-screen w-full flex items-center justify-center overflow-hidden bg-black -mt-24'
 >

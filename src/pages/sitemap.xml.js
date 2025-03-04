@@ -1,4 +1,4 @@
-import { SiteMetadata } from 'astro-travelens/config'
+import { SiteMetadata } from '../common/config'
 
 const documents = import.meta.glob('../data/*.json', { import: 'default', eager: true })
 const docs = Object.keys(documents)
@@ -39,7 +39,7 @@ ${docs
   </url>`
   )
   .join('\n')}
-</urlset> 
+</urlset>
 `
   return new Response(body, {
     status: 200,

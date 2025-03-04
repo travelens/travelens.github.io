@@ -2,9 +2,9 @@
 import type Document from '../data/document'
 import { Image } from 'astro:assets'
 import Layout from '../layouts/Layout.astro'
-import Header from 'astro-travelens/Header.astro'
-import Footer from 'astro-travelens/Footer.astro'
-import { SiteMetadata } from 'astro-travelens/config'
+import Header from '../common/Header.astro'
+import Footer from '../common/Footer.astro'
+import { SiteMetadata } from '../common/config'
 import Cover from '../countries/Penang.jpeg'
 const documents = import.meta.glob<Document>('../data/*.json', { import: 'default', eager: true })
 const trips = Object.keys(documents)

@@ -1,5 +1,5 @@
 import rss from '@astrojs/rss'
-import { SiteMetadata } from 'astro-travelens/config'
+import { SiteMetadata } from '../common/config'
 
 const documents = import.meta.glob('../data/*.json', { import: 'default', eager: true })
 const docs = Object.keys(documents)

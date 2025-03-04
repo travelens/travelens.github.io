@@ -2,9 +2,9 @@
 import type { CollectionEntry } from 'astro:content'
 import { Image } from 'astro:assets'
 import Layout from '../layouts/Layout.astro'
-import Header from 'astro-travelens/Header.astro'
-import Footer from 'astro-travelens/Footer.astro'
-import { SiteMetadata } from 'astro-travelens/config'
+import Header from '../common/Header.astro'
+import Footer from '../common/Footer.astro'
+import { SiteMetadata } from '../common/config'
 
 interface Props {
   place: CollectionEntry<'place'>

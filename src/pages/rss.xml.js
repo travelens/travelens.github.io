@@ -29,7 +29,7 @@ export async function GET(context) {
     items: await Promise.all(
       docs.map(async (doc) => {
         return {
-          link: import.meta.env.SITE + doc.base + doc.slug,
+          link: import.meta.env.SITE + doc.url,
           title: doc.title,
           description: doc.description,
           author: SiteMetadata.author.email,

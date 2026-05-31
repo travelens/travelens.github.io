@@ -34,7 +34,7 @@ ${tags
 ${docs
   .map(
     (post) => `  <url>
-    <loc>${import.meta.env.SITE + post.base + post.slug}</loc>
+    <loc>${import.meta.env.SITE + post.url}</loc>
     <lastmod>${post.date}</lastmod>
   </url>`
   )

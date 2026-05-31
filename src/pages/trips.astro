@@ -39,7 +39,7 @@ const trips = Object.keys(documents)
     {
       trips.map((trip) => (
         <a
-          href={trip.base + trip.slug}
+          href={trip.url}
           class="text-white tracking-widest font-heading bg-black flex h-72 block uppercase items-center justify-center relative"
         >
           <div class="relative z-10">{trip.title}</div>

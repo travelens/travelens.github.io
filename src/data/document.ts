@@ -2,8 +2,7 @@ import type { ImageMetadata } from 'astro'
 
 export default interface Document {
   id: string
-  slug: string
-  base: string
+  url: string
   collection: string
   body: string
   trip: string

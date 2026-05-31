@@ -17,7 +17,13 @@ const tagcount = tags.reduce((acc: Record<string, number>, curr) => {
   return acc
 }, {})
 
-const colors = ['red', 'yellow', 'green', 'blue', 'indigo', 'purple', 'pink']
+const colors = [
+  'bg-rosely-rose',
+  'bg-rosely-barely',
+  'bg-rosely-heavenly',
+  'bg-rosely-lavender',
+  'bg-rosely-lupine'
+]
 
 const textSize = [
   'text-xs',
@@ -47,17 +53,13 @@ const maxcount =
       <h1 class="text-6xl text-white font-bold font-display mb-6 mt-12 text-center">Tags</h1>
       <ul class="align-center leading-10 flex flex-wrap justify-center">
         {
-          Object.keys(tagcount).map((tag) => (
+          Object.keys(tagcount).map((tag, i) => (
             <li>
               <a
                 href={'/tag/' + encodeURIComponent(tag)}
                 class:list={[
                   'text-rosely-black m-2 p-1 hover:p-2 hover:m-1 shadow-md shadow-rosely-opal hover:shadow-rosely-granite rounded-full',
-                  'bg-' +
-                    colors[Math.floor(Math.random() * colors.length)] +
-                    '-' +
-                    (Math.floor(Math.random() * 3) + 1) +
-                    '00',
+                  colors[i % colors.length],
                   textSize[Math.floor((tagcount[tag] * textSize.length) / maxcount)]
                 ]}
               >

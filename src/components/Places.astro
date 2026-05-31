@@ -22,7 +22,7 @@ const places = await getCollection('place')
         <div class='relative z-10 p-12 lg:p-12 md:p-6'>
           <h3 class='font-display text-2xl'>{place.data.title}</h3>
           <p class='mt-2 text-sm'>{place.data.description}</p>
-          <div class='font-heading mt-6 inline-block bg-rosely-rose px-8 py-4 text-sm text-rosely-black tracking-widest transition-colors duration-300 hover:bg-rosely-morning hover:text-white'>
+          <div class='font-sans mt-6 inline-block bg-rosely-rose px-8 py-4 text-sm text-rosely-black tracking-widest transition-colors duration-300 hover:bg-rosely-morning hover:text-white'>
             View Trips
           </div>
         </div>
@@ -39,7 +39,7 @@ const places = await getCollection('place')
 <div class='py-12 text-center'>
   <a
     href='/trips'
-    class='font-heading inline-block bg-rosely-morning px-8 py-4 text-sm text-white tracking-widest hover:bg-rosely-orchid'
+    class='font-sans inline-block bg-rosely-morning px-8 py-4 text-sm text-white tracking-widest hover:bg-rosely-orchid'
     >View All Trips</a
   >
 </div>

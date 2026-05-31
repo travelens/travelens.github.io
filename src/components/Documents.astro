@@ -50,19 +50,19 @@ const { documents } = Astro.props
           </a>
           <div class="text-rosely-granite my-2">
             <div>
-              <span class="i-fa6-solid-passport h-4 w-4" />
+              <span class="i-fa6-solid-passport h-4 w-4" aria-hidden="true" />
               <span class="ml-1 mr-4">{doc.trip}</span>
             </div>
             <div>
-              <span class="i-fa6-solid-globe h-4 w-4" />
+              <span class="i-fa6-solid-globe h-4 w-4" aria-hidden="true" />
               <span class="ml-1 mr-4">{doc.place}</span>
             </div>
             <div>
-              <span class="i-fa6-solid-location-arrow h-4 w-4" />
+              <span class="i-fa6-solid-location-arrow h-4 w-4" aria-hidden="true" />
               <span class="ml-1 mr-4">{doc.location}</span>
             </div>
             <div>
-              <span class="i-fa6-solid-calendar-days h-4 w-4" />
+              <span class="i-fa6-solid-calendar-days h-4 w-4" aria-hidden="true" />
               <span class="ml-1">
                 {new Date(doc.date).toLocaleString('en-AU', {
                   dateStyle: 'long',
@@ -76,7 +76,8 @@ const { documents } = Astro.props
           <p>{doc.description}</p>
           <a
             href={doc.url}
-            class="text-sm text-white tracking-widest font-heading mt-4 px-8 py-4 bg-rosely-morning inline-block hover:bg-rosely-orchid"
+            aria-label={'Read ' + doc.title}
+            class="text-sm text-white tracking-widest font-sans mt-4 px-8 py-4 rounded-md bg-rosely-morning inline-block hover:bg-rosely-orchid"
           >
             Read
           </a>

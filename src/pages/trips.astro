@@ -22,10 +22,14 @@ const trips = Object.keys(documents)
   tags={['travel', 'blog']}
 >
   <Header />
-  <div class="px-12 py-12 bg-black w-full relative -mt-24">
+  <div class="px-12 py-12 bg-rosely-black w-full relative -mt-24">
     <!-- hero section -->
     <div class="py-48 text-center relative z-10">
-      <h1 class="text-6xl text-white font-bold font-display mb-12 text-center">Trips</h1>
+      <h1
+        class="text-3xl text-rosely-sugar font-bold font-display mb-12 text-center lg:text-6xl md:text-5xl sm:text-4xl"
+      >
+        Trips
+      </h1>
     </div>
 
     <!-- banner image -->
@@ -40,7 +44,7 @@ const trips = Object.keys(documents)
       trips.map((trip) => (
         <a
           href={trip.url}
-          class="text-white tracking-widest font-sans bg-black flex h-72 block uppercase items-center justify-center relative"
+          class="text-rosely-sugar tracking-widest font-sans bg-rosely-black flex h-72 block uppercase items-center justify-center relative"
         >
           <div class="relative z-10">{trip.title}</div>
           <img

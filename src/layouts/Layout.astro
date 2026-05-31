@@ -29,7 +29,11 @@ const { title, description, date, tags, image } = Astro.props
     <Metadata title={title} description={description} date={date} image={image} tags={tags} />
   </head>
   <body class="text-rosely-granite font-sans bg-rosely-sugar antialiased">
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 rounded bg-rosely-orchid text-white px-4 py-2 font-sans">Skip to main content</a>
+    <a
+      href="#main-content"
+      class="text-rosely-sugar font-sans px-4 py-2 rounded bg-rosely-orchid z-50 sr-only focus:left-4 focus:top-4 focus:absolute focus:not-sr-only"
+      >Skip to main content</a
+    >
     <main id="main-content">
       <slot />
     </main>

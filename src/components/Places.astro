@@ -6,23 +6,23 @@ const places = await getCollection('place')
 ---
 
 <div
-  id='places'
-  class='grid grid-cols-1 gap-4 p-4 lg:grid-cols-5 lg:grid-rows-2 lg:h-screen md:grid-cols-3'
+  id="places"
+  class="p-4 gap-4 grid grid-cols-1 lg:grid-cols-5 lg:grid-rows-2 md:grid-cols-3 lg:h-screen"
 >
   {
     places.map((place) => (
       <a
         href={'/place/' + place.id}
         class:list={[
-          'group relative block bg-black text-white',
+          'group relative block bg-rosely-black text-rosely-sugar',
           'md:col-span-' + place.data.width,
-          'transition-opacity duration-500 shadow-lg shadow-neutral-400 rounded-lg'
+          'transition-opacity duration-500 shadow-lg shadow-rosely-opal rounded-lg'
         ]}
       >
-        <div class='relative z-10 p-12 lg:p-12 md:p-6'>
-          <h3 class='font-display text-2xl'>{place.data.title}</h3>
-          <p class='mt-2 text-sm'>{place.data.description}</p>
-          <div class='font-sans mt-6 inline-block bg-rosely-rose px-8 py-4 text-sm text-rosely-black tracking-widest transition-colors duration-300 hover:bg-rosely-morning hover:text-white'>
+        <div class="p-12 relative z-10 lg:p-12 md:p-6">
+          <h3 class="text-2xl font-display">{place.data.title}</h3>
+          <p class="text-sm mt-2">{place.data.description}</p>
+          <div class="text-sm text-rosely-black tracking-widest font-sans mt-6 px-8 py-4 bg-rosely-rose inline-block transition-colors duration-300 hover:text-rosely-sugar hover:bg-rosely-morning">
             View Trips
           </div>
         </div>
@@ -30,16 +30,16 @@ const places = await getCollection('place')
           src={place.data.image}
           width={2048}
           alt={place.data.title}
-          class='absolute inset-0 h-full w-full rounded-lg object-cover opacity-50 transition-opacity duration-500 group-hover:opacity-25'
+          class="rounded-lg opacity-50 h-full w-full transition-opacity duration-500 inset-0 absolute object-cover group-hover:opacity-25"
         />
       </a>
     ))
   }
 </div>
-<div class='py-12 text-center'>
+<div class="py-12 text-center">
   <a
-    href='/trips'
-    class='font-sans inline-block bg-rosely-morning px-8 py-4 text-sm text-white tracking-widest hover:bg-rosely-orchid'
+    href="/trips"
+    class="text-sm text-rosely-sugar tracking-widest font-sans px-8 py-4 bg-rosely-morning inline-block hover:bg-rosely-orchid"
     >View All Trips</a
   >
 </div>

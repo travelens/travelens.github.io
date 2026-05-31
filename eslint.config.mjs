@@ -5,7 +5,14 @@ import tsParser from '@typescript-eslint/parser'
 
 export default [
   {
-    ignores: ['**/node_modules/**', '**/dist/**', '**/.agents/**', '**/.astro/**', 'pnpm-lock.yaml']
+    ignores: [
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/.agents/**',
+      '**/.astro/**',
+      'pnpm-lock.yaml',
+      'src/data/**'
+    ]
   },
   ...eslintPluginAstro.configs['flat/recommended'],
   ...eslintPluginAstro.configs['flat/jsx-a11y-recommended'],

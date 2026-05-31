@@ -1,0 +1,27 @@
+# travelens
+
+> Travels Through A Lens — Chris Tham's travelogue documenting trips across many countries.
+
+travelens is a static travel blog by Chris Tham (Sydney, Australia), recording personal travel
+experiences with photography. Content is organised by trip, place/region, and tag.
+
+## Key pages
+
+- [Home](https://travelens.github.io/): Introduction, featured places, and about section
+- [Trips](https://travelens.github.io/trips): Index of all trips in reverse chronological order
+- [Tags](https://travelens.github.io/tags): Browse content by tag
+- [RSS feed](https://travelens.github.io/rss.xml): Full RSS feed of all trips
+
+## Feeds & structured data
+
+- [RSS](https://travelens.github.io/rss.xml): RSS 2.0 feed
+- [Sitemap](https://travelens.github.io/sitemap.xml): XML sitemap of all pages
+- [Documents API](https://travelens.github.io/documents.json): JSON index of all trip documents
+
+## Author
+
+- Name: Chris Tham
+- Location: Sydney, Australia
+- Website: https://christham.net
+- Photography site: https://visualvoyager.net
+- GitHub: https://github.com/travelens

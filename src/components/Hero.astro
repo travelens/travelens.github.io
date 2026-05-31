@@ -10,9 +10,9 @@ const bgImages = [NewYork, Paris, Rome]
 ---
 
 <div
-  class="bg-black flex h-screen w-full items-center justify-center relative overflow-hidden -mt-24"
+  class="bg-rosely-black flex h-screen w-full items-center justify-center relative overflow-hidden -mt-24"
 >
-  <div class="text-white px-6 text-center absolute z-10">
+  <div class="text-rosely-sugar px-6 text-center absolute z-10">
     <div class="text-xs tracking-widest uppercase">travelens</div>
     <h1 class="text-3xl font-display font-semibold mt-2 md:text-5xl">Travels Through A Lens</h1>
     <p class="mt-4">
@@ -26,22 +26,24 @@ const bgImages = [NewYork, Paris, Rome]
     <div class="mx-auto mt-6 gap-4 grid grid-cols-1 max-w-sm md:grid-cols-2">
       <a
         href="#places"
-        class="hero-scroll text-sm text-white tracking-widest font-sans px-8 py-4 rounded-md bg-rosely-morning inline-block hover:bg-rosely-orchid"
+        class="hero-scroll text-sm text-rosely-sugar tracking-widest font-sans px-8 py-4 rounded-md bg-rosely-morning inline-block hover:bg-rosely-orchid"
       >
         Explore
       </a>
       <a
         href="#about"
-        class="hero-scroll text-sm text-rosely-black tracking-widest font-sans px-8 py-4 rounded-md bg-rosely-rose inline-block hover:text-white hover:bg-rosely-morning"
+        class="hero-scroll text-sm text-rosely-black tracking-widest font-sans px-8 py-4 rounded-md bg-rosely-rose inline-block hover:text-rosely-sugar hover:bg-rosely-morning"
       >
         About
       </a>
     </div>
   </div>
-  <div class="absolute h-full left-0 opacity-50 top-0 w-full" id="hero-bgimg">
+  <div class="opacity-50 h-full w-full left-0 top-0 absolute" id="hero-bgimg">
     {
       bgImages.map((image, i) => (
-        <div class={`absolute h-full left-0 top-0 w-[130%] opacity-0 overflow-hidden transition-opacity duration-[3s] bgimg-slide${i === 0 ? ' bgactive' : ''}`}>
+        <div
+          class={`bgimg-slide opacity-0 h-full w-[130%] transition-opacity duration-[3s] left-0 top-0 absolute overflow-hidden${i === 0 ? ' bgactive' : ''}`}
+        >
           <Image src={image} class="h-full w-full object-cover" alt="" />
         </div>
       ))

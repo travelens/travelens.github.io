@@ -15,5 +15,5 @@ export default interface Document {
   date: Date
   image: ImageMetadata
   map: number[]
-  tags: string[]
+  tags: string
 }

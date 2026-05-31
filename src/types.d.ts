@@ -1,1 +1,1 @@
-declare module 'alpinejs-scroll-to'
+declare module 'photoswipe-dynamic-caption-plugin'

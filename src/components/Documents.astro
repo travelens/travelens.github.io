@@ -16,7 +16,7 @@ interface Doc {
   date: Date
   image: ImageMetadata
   map: number[]
-  tags: string[]
+  tags: string
 }
 
 export interface Props {
@@ -28,43 +28,43 @@ const { documents } = Astro.props
 
 {
   documents.map((doc, i) => (
-    <div class='grid grid-cols-1 mx-auto mb-4 rounded-lg bg-rose-50 px-6 py-4 shadow-lg shadow-neutral-400 container lg:grid-cols-2'>
-      <div class='relative h-52 lg:h-auto md:h-72'>
+    <div class="mx-auto mb-4 px-6 py-4 rounded-lg bg-rosely-heavenly container grid grid-cols-1 shadow-md shadow-rosely-opal lg:grid-cols-2">
+      <div class="h-52 relative lg:h-auto md:h-72">
         <a href={doc.base + doc.slug}>
           <img
             src={doc.image.src}
             width={1024}
-            class='absolute inset-0 h-full w-full bg-white object-cover p-4 hover:bg-pink-200'
+            class="p-4 bg-white h-full w-full inset-0 absolute object-cover hover:bg-rosely-rose"
             alt={doc.title}
           />
         </a>
       </div>
       <div
-        class='order-last flex items-center justify-center px-6 py-12 lg:p-32 md:p-16'
+        class="px-6 py-12 flex items-center justify-center order-last lg:p-32 md:p-16"
         class:list={[i % 2 == 0 && 'lg:order-first']}
       >
         <div>
           <a href={doc.base + doc.slug}>
-            <h3 class='font-display mb-2 text-4xl text-black leading-tight hover:text-pink'>
+            <h3 class="text-4xl text-rosely-black leading-tight font-display mb-2 hover:text-rosely-morning">
               {doc.title}
             </h3>
           </a>
-          <div class='my-2 text-neutral-600'>
+          <div class="text-rosely-granite my-2">
             <div>
-              <span class='i-fa6-solid-passport h-4 w-4' />
-              <span class='ml-1 mr-4'>{doc.trip}</span>
+              <span class="i-fa6-solid-passport h-4 w-4" />
+              <span class="ml-1 mr-4">{doc.trip}</span>
             </div>
             <div>
-              <span class='i-fa6-solid-globe h-4 w-4' />
-              <span class='ml-1 mr-4'>{doc.place}</span>
+              <span class="i-fa6-solid-globe h-4 w-4" />
+              <span class="ml-1 mr-4">{doc.place}</span>
             </div>
             <div>
-              <span class='i-fa6-solid-location-arrow h-4 w-4' />
-              <span class='ml-1 mr-4'>{doc.location}</span>
+              <span class="i-fa6-solid-location-arrow h-4 w-4" />
+              <span class="ml-1 mr-4">{doc.location}</span>
             </div>
             <div>
-              <span class='i-fa6-solid-calendar-days h-4 w-4' />
-              <span class='ml-1'>
+              <span class="i-fa6-solid-calendar-days h-4 w-4" />
+              <span class="ml-1">
                 {new Date(doc.date).toLocaleString('en-AU', {
                   dateStyle: 'long',
                   timeStyle: 'short',
@@ -72,12 +72,12 @@ const { documents } = Astro.props
                 })}
               </span>
             </div>
-            <Tags tags={doc.tags} />
+            <Tags tags={doc.tags ? doc.tags.split(':') : []} />
           </div>
           <p>{doc.description}</p>
           <a
             href={doc.base + doc.slug}
-            class='font-heading mt-4 inline-block bg-pink-400 px-8 py-4 text-sm text-white tracking-widest hover:bg-pink-500'
+            class="text-sm text-white tracking-widest font-heading mt-4 px-8 py-4 bg-rosely-morning inline-block hover:bg-rosely-orchid"
           >
             Read
           </a>

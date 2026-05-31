@@ -23,16 +23,16 @@ const { place } = Astro.props
   <Header />
   <div class='relative w-full flex items-center justify-center overflow-hidden bg-black -mt-24'>
     <div class='relative h-96'>
-      <Image src={place.data.image} class='w-full object-cover opacity-50' alt={place.data.title} />
+      <Image src={place.data.image} class='h-full w-full object-cover opacity-50' alt={place.data.title} />
     </div>
   </div>
   <div class='relative z-10 mx-auto max-w-4xl bg-white px-12 pt-12 -mt-32 lg:px-24'>
-    <h2 class='mt-4 text-xs text-gray-600 tracking-widest uppercase'>travelens</h2>
-    <h1 class='font-display mt-4 text-2xl text-gray-900 md:text-3xl'>
+    <h2 class='mt-4 text-xs text-rosely-opal tracking-widest uppercase'>travelens</h2>
+    <h1 class='font-display mt-4 text-2xl text-rosely-black md:text-3xl'>
       {place.data.title}
     </h1>
 
-    <div class='prose-sm lg:prose-lg mt-6 italic prose sm:prose'>
+    <div class='prose prose-sm lg:prose-lg mt-6 italic'>
       {place.data.description}
     </div>
   </div>

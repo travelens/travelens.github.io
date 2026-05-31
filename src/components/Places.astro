@@ -7,22 +7,22 @@ const places = await getCollection('place')
 
 <div
   id='places'
-  class='grid grid-cols-1 gap-4 p-4 lg:grid-cols-5 lg:grid-rows-2 md:grid-cols-3 md:grid-rows-4 md:h-screen'
+  class='grid grid-cols-1 gap-4 p-4 lg:grid-cols-5 lg:grid-rows-2 lg:h-screen md:grid-cols-3'
 >
   {
     places.map((place) => (
       <a
         href={'/place/' + place.id}
         class:list={[
-          'relative block bg-black text-white',
+          'group relative block bg-black text-white',
           'md:col-span-' + place.data.width,
-          'hover:opacity-75 transition-opacity duration-500 shadow-lg shadow-neutral-400 rounded-lg'
+          'transition-opacity duration-500 shadow-lg shadow-neutral-400 rounded-lg'
         ]}
       >
         <div class='relative z-10 p-12 lg:p-12 md:p-6'>
           <h3 class='font-display text-2xl'>{place.data.title}</h3>
           <p class='mt-2 text-sm'>{place.data.description}</p>
-          <div class='font-heading mt-6 inline-block bg-pink-200 px-8 py-4 text-sm text-gray-700 tracking-widest hover:bg-pink-300 hover:text-black'>
+          <div class='font-heading mt-6 inline-block bg-rosely-rose px-8 py-4 text-sm text-rosely-black tracking-widest transition-colors duration-300 hover:bg-rosely-morning hover:text-white'>
             View Trips
           </div>
         </div>
@@ -30,7 +30,7 @@ const places = await getCollection('place')
           src={place.data.image}
           width={2048}
           alt={place.data.title}
-          class='absolute inset-0 h-full w-full rounded-lg object-cover opacity-50'
+          class='absolute inset-0 h-full w-full rounded-lg object-cover opacity-50 transition-opacity duration-500 group-hover:opacity-25'
         />
       </a>
     ))
@@ -39,7 +39,7 @@ const places = await getCollection('place')
 <div class='py-12 text-center'>
   <a
     href='/trips'
-    class='font-heading inline-block bg-pink-400 px-8 py-4 text-sm text-white tracking-widest'
+    class='font-heading inline-block bg-rosely-morning px-8 py-4 text-sm text-white tracking-widest hover:bg-rosely-orchid'
     >View All Trips</a
   >
 </div>

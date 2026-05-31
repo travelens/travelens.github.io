@@ -15,37 +15,37 @@ const trips = Object.keys(documents)
 ---
 
 <Layout
-  title='Trips'
-  description='Index of all trips'
+  title="Trips"
+  description="Index of all trips"
   date={SiteMetadata.buildTime}
   image={Cover}
   tags={['travel', 'blog']}
 >
   <Header />
-  <div class='relative w-full bg-black px-12 py-12 -mt-24'>
+  <div class="px-12 py-12 bg-black w-full relative -mt-24">
     <!-- hero section -->
-    <div class='relative z-10 py-48 text-center'>
-      <h1 class='font-display mb-12 text-center text-6xl text-white font-bold'>Trips</h1>
+    <div class="py-48 text-center relative z-10">
+      <h1 class="text-6xl text-white font-bold font-display mb-12 text-center">Trips</h1>
     </div>
 
     <!-- banner image -->
     <Image
       src={Cover}
-      class='absolute inset-0 w-full object-cover object-center opacity-70'
-      alt='Cover'
+      class="opacity-70 w-full inset-0 absolute object-cover object-center"
+      alt="Cover"
     />
   </div>
-  <div class='grid grid-cols-1 bg-neutral-700 lg:grid-cols-3 md:grid-cols-2 xl:grid-cols-4'>
+  <div class="bg-rosely-black grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 xl:grid-cols-4">
     {
       trips.map((trip) => (
         <a
           href={trip.base + trip.slug}
-          class='font-heading relative block h-72 flex items-center justify-center bg-black text-white tracking-widest uppercase'
+          class="text-white tracking-widest font-heading bg-black flex h-72 block uppercase items-center justify-center relative"
         >
-          <div class='relative z-10'>{trip.title}</div>
+          <div class="relative z-10">{trip.title}</div>
           <img
             src={trip.image.src}
-            class='absolute inset-0 h-full w-full object-cover opacity-50 hover:opacity-75'
+            class="opacity-50 h-full w-full inset-0 absolute object-cover hover:opacity-75"
             alt={trip.title}
           />
         </a>

@@ -17,6 +17,7 @@ export async function getStaticPaths() {
   const allTags = Object.keys(documents)
     .map((doc) => documents[doc].map((entry) => entry.tags))
     .flat(3)
+    .flatMap((tag) => tag.split(':'))
   const uniqueTags = Array.from(new Set(allTags))
   const tags = uniqueTags.map((tag) => {
     return {
@@ -24,7 +25,7 @@ export async function getStaticPaths() {
       documents: Object.keys(documents)
         .map((doc) => documents[doc])
         .flat(3)
-        .filter((doc) => doc.tags.includes(tag))
+        .filter((doc) => doc.tags.split(':').includes(tag))
     }
   })
   return tags.map((tag) => ({
@@ -48,14 +49,14 @@ const { tag, documents } = Astro.props
   tags={[tag, 'travel', 'blog']}
 >
   <Header />
-  <div class='relative w-full flex items-center justify-center overflow-hidden bg-black -mt-24'>
-    <div class='relative h-96'>
-      <Image src={Cover} class='w-full object-cover object-center opacity-50' alt='Background' />
+  <div class="bg-black flex w-full items-center justify-center relative overflow-hidden -mt-24">
+    <div class="h-96 relative">
+      <Image src={Cover} class="opacity-50 w-full object-cover object-center" alt="Background" />
     </div>
   </div>
-  <div class='relative z-10 mx-auto mb-4 max-w-4xl bg-white px-12 pb-12 pt-12 -mt-32 lg:px-24'>
-    <h2 class='mt-4 text-xs text-gray-600 tracking-widest uppercase'>travelens</h2>
-    <h1 class='font-display mt-4 text-2xl text-gray-900 md:text-3xl'>Tag: {tag}</h1>
+  <div class="mx-auto mb-4 px-12 pb-12 pt-12 bg-white max-w-4xl relative z-10 -mt-32 lg:px-24">
+    <h2 class="text-xs text-rosely-opal tracking-widest mt-4 uppercase">travelens</h2>
+    <h1 class="text-2xl text-rosely-black font-display mt-4 md:text-3xl">Tag: {tag}</h1>
   </div>
   <Documents documents={documents} />
   <Footer />

@@ -4,9 +4,13 @@ const documents = import.meta.glob('../data/*.json', { import: 'default', eager:
 const docs = Object.keys(documents)
   .map((doc) => documents[doc])
   .flat(3)
-const tags = Object.keys(documents)
-  .map((doc) => documents[doc].map((entry) => entry.tags))
-  .flat(3)
+const tags = [
+  ...new Set(
+    Object.keys(documents)
+      .map((doc) => documents[doc].map((entry) => (entry.tags ? entry.tags.split(':') : [])))
+      .flat(3)
+  )
+]
 
 export async function GET() {
   const body = `<?xml version="1.0" encoding="UTF-8"?>
@@ -26,7 +30,7 @@ export async function GET() {
 ${tags
   .map(
     (tag) => `  <url>
-    <loc>${import.meta.env.SITE + '/tag/' + tag}</loc>
+    <loc>${import.meta.env.SITE + '/tag/' + encodeURIComponent(tag)}</loc>
     <lastmod>${SiteMetadata.buildTime.toISOString()}</lastmod>
   </url>`
   )
@@ -44,7 +48,7 @@ ${docs
   return new Response(body, {
     status: 200,
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/xml'
     }
   })
 }

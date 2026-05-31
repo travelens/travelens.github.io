@@ -2,7 +2,7 @@ export async function GET() {
   return new Response(
     `User-agent: *
 Allow: /
-Sitemap: ${import.meta.env.SITE}${import.meta.env.BASE_URL}sitemap-index.xml
+Sitemap: ${import.meta.env.SITE}${import.meta.env.BASE_URL}sitemap.xml
 `,
     {
       status: 200,
